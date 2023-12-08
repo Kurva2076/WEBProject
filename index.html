@@ -1,18 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Поддержка сайта на Drupal - Доработка Друпал сайтов от профессионалов</title>
 </head>
+
 <body>
 
     <div class="requestForSupport">
         <div class="requestMessage">
             <div class="subtitle">
-                <p>Оставить заявку на<br/>поддержку сайта</p>
+                <p>Оставить заявку на<br />поддержку сайта</p>
             </div>
 
             <div class="bodyText">
@@ -23,10 +25,10 @@
 
             <div class="contactInformation">
                 <ul>
-                    <li class="telephone">
+                    <li class="servicePhone">
                         <a href="tel:88002222673">8 800 222-26-73</a>
                     </li>
-                    <li class="eMail">
+                    <li class="serviceEMail">
                         <a href="mailto:info@drupal-code.ru">info@drupal-code.ru</a>
                     </li>
                 </ul>
@@ -34,7 +36,39 @@
         </div>
 
         <div class="requestForm">
+            <form>
+                <div class="formElement">
+                    <div class="nameText">
+                        <label>
+                            <input name="clientName" placeholder="Ваше имя" />
+                        </label>
+                    </div>
+                </div>
 
+                <div class="formElement">
+                    <div class="phoneText">
+                        <label>
+                            <input name="clientPhone" placeholder="Телефон" />
+                        </label>
+                    </div>
+                </div>
+
+                <div class="formElement">
+                    <div class="messageText">
+                        <label>
+                            <input type="email" name="clientEMail" placeholder="E-mail" />
+                        </label>
+                    </div>
+                </div>
+
+                <div class="formElement">
+                    <div class="eMailText">
+                        <label>
+                            <input name="clientMessage" placeholder="Ваш комментарий" />
+                        </label>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </body>
