@@ -18,9 +18,11 @@
             </div>
 
             <div class="bodyText">
-                <p>Срочно нужна поддержка сайта? Ваша команда не успевает справиться самостоятельно или предыдущий
-                подрядчик не справился с работой? Тогда вам точно к нам! Просто оставьте заявку и наш менеджер с вами
-                свяжется!</p>
+                <span>
+                    <p>Срочно нужна поддержка сайта? Ваша команда не успевает справиться самостоятельно или предыдущий
+                        подрядчик не справился с работой? Тогда вам точно к нам! Просто оставьте заявку и наш менеджер с
+                        вами свяжется!</p>
+                </span>
             </div>
 
             <div class="contactInformation">
@@ -38,34 +40,55 @@
         <div class="requestForm">
             <form>
                 <div class="formElement">
-                    <div class="nameText">
-                        <label>
-                            <input name="clientName" placeholder="Ваше имя" />
-                        </label>
+                    <div class="textElement">
+                        <div class="nameText">
+                            <label>
+                                <input name="clientName" placeholder="Ваше имя" />
+                            </label>
+                        </div>
                     </div>
                 </div>
 
                 <div class="formElement">
-                    <div class="phoneText">
-                        <label>
-                            <input name="clientPhone" placeholder="Телефон" />
-                        </label>
+                    <div class="textElement">
+                        <div class="phoneText">
+                            <label>
+                                <input name="clientPhone" placeholder="Телефон" />
+                            </label>
+                        </div>
                     </div>
                 </div>
 
                 <div class="formElement">
-                    <div class="messageText">
-                        <label>
-                            <input type="email" name="clientEMail" placeholder="E-mail" />
-                        </label>
+                    <div class="textElement">
+                        <div class="eMailText">
+                            <label>
+                                <input type="email" name="clientEMail" placeholder="E-mail" />
+                            </label>
+                        </div>
                     </div>
                 </div>
 
                 <div class="formElement">
-                    <div class="eMailText">
-                        <label>
-                            <input name="clientMessage" placeholder="Ваш комментарий" />
-                        </label>
+                    <div class="textElement">
+                        <div class="messageText">
+                            <label>
+                                <textarea class="textarea" name="clientMessage"
+                                          placeholder="Ваш комментарий"></textarea>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formElement">
+                    <div class="textElement">
+                        <div class="userAgree">
+                            <label>
+                                <input type="checkbox" name="checkbox" />
+                                <span class="agreementText">Отправляя заявку, я даю согласие на
+                                    <a class="userAgreement" href="/">обработку своих персональных данных</a>.</span>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </form>
