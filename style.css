@@ -8,6 +8,10 @@ body {
     font-family: "Montserrat", system-ui !important;
 }
 
+.block-form-container {
+    background-color: black;
+}
+
 .container.block-form {
     margin-top: 25px;
 }
@@ -18,4 +22,46 @@ body {
 
 .userAgree > label {
     cursor: pointer;
+}
+
+input[name="agreeCheckbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.custom-checkbox {
+    display: inline-block;
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #838488;
+    border-radius: 5px;
+}
+
+input[name="agreeCheckbox"]:focus + .custom-checkbox,
+input[name="agreeCheckbox"]:checked:focus + .custom-checkbox {
+    border-color: #ee4d31;
+    box-shadow: 0 0 9px calc(1px / 4) #ee4d31;
+}
+
+.custom-checkbox::after {
+    display: block;
+    content: "";
+    position: relative;
+    width: 21px;
+    height: 21px;
+    background-image: url("checked-checkbox-icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    rotate: -30deg;
+    opacity: 0;
+    transition: rotate 400ms, opacity 200ms;
+}
+
+input[name="agreeCheckbox"]:checked + .custom-checkbox {
+    border-color: #838488;
+    &::after {
+        rotate: 0deg;
+        opacity: 1;
+    }
 }
