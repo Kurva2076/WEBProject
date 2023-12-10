@@ -50,7 +50,7 @@ input[name="agreeCheckbox"]:checked:focus + .custom-checkbox {
     position: relative;
     width: 21px;
     height: 21px;
-    background-image: url("checked-checkbox-icon.svg");
+    background-image: url("img/checked-checkbox-icon.svg");
     background-repeat: no-repeat;
     background-position: center;
     rotate: -30deg;
