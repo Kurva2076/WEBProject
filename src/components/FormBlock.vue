@@ -4,7 +4,7 @@
       <div class="row">
         <div class="requestMessage col-xs-12 col-md-6">
           <div class="subtitle">
-            <h2>Оставить заявку на<br />поддержку сайта</h2>
+            <h2><strong>Оставить заявку на<br />поддержку сайта</strong></h2>
           </div>
 
           <div class="bodyText">
