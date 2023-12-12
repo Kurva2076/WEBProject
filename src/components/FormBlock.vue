@@ -1,100 +1,93 @@
 <template>
-  <div class="block-form-container">
-    <div id="requestForSupport" class="container block-form">
-      <div class="row">
-        <div class="requestMessage col-xs-12 col-md-6">
-          <div class="subtitle">
-            <h2>Оставить заявку на<br />поддержку сайта</h2>
+  <div class="block-form-footer-container">
+    <div class="block-form-container">
+      <div id="requestForSupport" class="block-form container">
+        <div class="row">
+          <div class="requestMessage col-xs-12 col-md-6">
+            <div class="subtitle">
+              <h2>Оставить заявку на<br />поддержку сайта</h2>
+            </div>
+
+            <div class="bodyText">
+              <p>
+                <span>
+                  Срочно нужна поддержка сайта? Ваша команда не успевает справиться самостоятельно или предыдущий
+                  подрядчик не справился с работой? Тогда вам точно к нам! Просто оставьте заявку и наш менеджер с
+                  вами свяжется!
+                </span>
+              </p>
+            </div>
+
+            <div class="contactInformation">
+              <ul>
+                <li class="servicePhone">
+                  <a class="linkPhone" href="tel:88002222673">8 800 222-26-73</a>
+                </li>
+                <li class="serviceEMail">
+                  <a class="linkEMail" href="mailto:info@drupal-coder.ru">info@drupal-coder.ru</a>
+                </li>
+              </ul>
+            </div>
           </div>
 
-          <div class="bodyText">
-            <p>
-              <span>
-                Срочно нужна поддержка сайта? Ваша команда не успевает справиться самостоятельно или предыдущий
-                подрядчик не справился с работой? Тогда вам точно к нам! Просто оставьте заявку и наш менеджер с
-                вами свяжется!
-              </span>
-            </p>
-          </div>
-
-          <div class="contactInformation">
-            <ul>
-              <li class="servicePhone">
-                <a class="linkPhone" href="tel:88002222673">8 800 222-26-73</a>
-              </li>
-              <li class="serviceEMail">
-                <a class="linkEMail" href="mailto:info@drupal-coder.ru">info@drupal-coder.ru</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="requestForm col-xs-12 col-md-6">
-          <form id="clientInfo">
-            <div class="formElement">
-              <div class="textElement">
-                <div class="nameText">
-                  <label>
+          <div class="requestForm col-xs-12 col-md-6">
+            <form id="clientInfo">
+              <div class="formElement">
+                <div class="textElement">
+                  <div class="nameText">
                     <input name="clientName" placeholder="Ваше имя" />
-                  </label>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="formElement">
-              <div class="textElement">
-                <div class="phoneText">
-                  <label>
+              <div class="formElement">
+                <div class="textElement">
+                  <div class="phoneText">
                     <input name="clientPhone" placeholder="Телефон" />
-                  </label>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="formElement">
-              <div class="textElement">
-                <div class="eMailText">
-                  <label>
+              <div class="formElement">
+                <div class="textElement">
+                  <div class="eMailText">
                     <input type="email" name="clientEMail" placeholder="E-mail" />
-                  </label>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="formElement">
-              <div class="textElement">
-                <div class="messageText">
-                  <label>
-                    <textarea class="textarea" name="clientMessage"
-                              placeholder="Ваш комментарий">
-                    </textarea>
-                  </label>
+              <div class="formElement">
+                <div class="textElement">
+                  <div class="messageText">
+                    <textarea name="clientMessage" placeholder="Ваш комментарий"></textarea>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="formElement">
-              <div class="userAgree">
-                <label>
+              <div class="formElement">
+                <div class="userAgree">
                   <input class="form-check-input" type="checkbox" name="agreeCheckbox" />
                   <span class="custom-checkbox"></span>
                   <span class="agreementText">
                     Отправляя заявку, я даю согласие на
                     <a class="userAgreement" href="../../public/index.html">обработку своих персональных данных</a>.
                   </span>
-                </label>
+                </div>
               </div>
-            </div>
 
-            <div class="formElement">
-              <div class="sendButton">
-                <button class="button" type="button" form="clientInfo">СВЯЖИТЕСЬ С НАМИ</button>
+              <div class="formElement">
+                <div class="sendButton">
+                  <button class="button" type="button" form="clientInfo">СВЯЖИТЕСЬ С НАМИ</button>
+                </div>
               </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
+    <footer class="footer">
+
+    </footer>
   </div>
 </template>
 
@@ -109,11 +102,22 @@ export default {
 <style scoped lang="scss">
 
 .block-form-container {
-  background-color: black;
+  min-height: 547px;
 }
 
-.container.block-form {
-  margin-top: 25px;
+.block-form {
+  padding-top: 27px;
+}
+
+.footer {
+  height: 182px;
+  border-bottom: 1px solid rgb(256, 256, 256);
+  border-top: 1px solid rgba(192, 192, 192, 0.5);
+}
+
+.block-form-footer-container {
+  background: linear-gradient(254deg, rgba(255, 255, 255, .276) -110%, rgba(255, 255, 255, 0) 69.75%),
+  url(../assets/img/D.svg) no-repeat bottom right, url(../assets/img/D-flying.svg) no-repeat center top, #040613;
 }
 
 .subtitle,
@@ -149,6 +153,10 @@ export default {
   }
 }
 
+.contactInformation > ul {
+  padding-left: 0;
+}
+
 .servicePhone,
 .serviceEMail {
   &::marker {
@@ -157,15 +165,25 @@ export default {
 }
 
 .linkPhone::before {
-  content: url(../assets/img/phone-icon.svg);
-  margin-right: 24px;
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: url(../assets/img/phone-icon.svg) no-repeat center;
+  margin-right: 26px;
   position: relative;
   top: 2px;
+  left: 2px;
 }
 
 .linkEMail::before {
-  content: url(../assets/img/email-icon.svg);
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 18px;
+  background: url(../assets/img/email-icon.svg) no-repeat center;
   margin-right: 20px;
+  margin-top: 2px;
   position: relative;
   top: 4px;
 }
@@ -192,8 +210,42 @@ export default {
   font-size: 19px;
 }
 
-.formElement {
-  margin-top: 5px !important;
+#clientInfo {
+  margin-top: 1px;
+  max-width: 480px;
+}
+
+.formElement > .textElement {
+  margin-top: 7px;
+}
+
+.textElement input,
+.textElement textarea {
+  width: 100%;
+  height: 54px;
+  background: rgba(0, 0, 0, 0);
+  border: 1px solid rgba(256, 256, 256, 0.3);
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  &:focus {
+    outline: none;
+    text-decoration-skip-box: none;
+    border-color: #ee4d31;
+    box-shadow: 0 0 9px calc(1px / 4) #ee4d31;
+  }
+  &::placeholder {
+    font-family: "Montserrat", system-ui;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 26px 24px;
+    color: #FFFFFF;
+  }
+}
+
+.textElement textarea {
+  height: 154px;
 }
 
 .userAgree > label {
@@ -210,7 +262,7 @@ input[name="agreeCheckbox"] {
   margin-right: 10px;
   width: 25px;
   height: 25px;
-  border: 2px solid #838488;
+  border: 2px solid rgba(256, 256, 256, 0.5);
   border-radius: 5px;
 }
 

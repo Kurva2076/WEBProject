@@ -1,19 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/img/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App" />
-
   <FormBlock />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import FormBlock from "@/components/FormBlock.vue";
 
 export default {
   name: 'App',
   components: {
-    FormBlock,
-    HelloWorld
+    FormBlock
   }
 }
 </script>
