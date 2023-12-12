@@ -4,7 +4,7 @@
       <div class="row">
         <div class="requestMessage col-xs-12 col-md-6">
           <div class="subtitle">
-            <h2><strong>Оставить заявку на<br />поддержку сайта</strong></h2>
+            <h2>Оставить заявку на<br />поддержку сайта</h2>
           </div>
 
           <div class="bodyText">
@@ -20,10 +20,10 @@
           <div class="contactInformation">
             <ul>
               <li class="servicePhone">
-                <a href="tel:88002222673">8 800 222-26-73</a>
+                <a class="linkPhone" href="tel:88002222673">8 800 222-26-73</a>
               </li>
               <li class="serviceEMail">
-                <a href="mailto:info@drupal-code.ru">info@drupal-code.ru</a>
+                <a class="linkEMail" href="mailto:info@drupal-coder.ru">info@drupal-coder.ru</a>
               </li>
             </ul>
           </div>
@@ -114,6 +114,82 @@ export default {
 
 .container.block-form {
   margin-top: 25px;
+}
+
+.subtitle,
+.contactInformation {
+  color: #FFFFFF;
+}
+
+.bodyText {
+  color: #BBBCBE;
+}
+
+.subtitle {
+  text-align: center;
+}
+
+.bodyText,
+.contactInformation {
+  text-align: justify;
+}
+
+@media (min-width: 601px) {
+  .bodyText,
+  .contactInformation {
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .subtitle,
+  .bodyText,
+  .contactInformation {
+    text-align: justify;
+  }
+}
+
+.servicePhone,
+.serviceEMail {
+  &::marker {
+    content: none;
+  }
+}
+
+.linkPhone::before {
+  content: url(../assets/img/phone-icon.svg);
+  margin-right: 24px;
+  position: relative;
+  top: 2px;
+}
+
+.linkEMail::before {
+  content: url(../assets/img/email-icon.svg);
+  margin-right: 20px;
+  position: relative;
+  top: 4px;
+}
+
+.linkPhone,
+.linkPhone:active,
+.linkPhone:hover,
+.linkEMail,
+.linkEMail:active,
+.linkEMail:hover{
+  color: #FFFFFF;
+}
+
+.linkPhone,
+.linkEMail {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.linkPhone,
+.linkPhone:active,
+.linkPhone:hover {
+  text-decoration: none !important;
+  font-size: 19px;
 }
 
 .formElement {
