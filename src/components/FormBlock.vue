@@ -66,12 +66,15 @@
 
               <div class="formElement">
                 <div class="userAgree">
-                  <input class="form-check-input" type="checkbox" name="agreeCheckbox" />
-                  <span class="custom-checkbox"></span>
-                  <span class="agreementText">
-                    Отправляя заявку, я даю согласие на
-                    <a class="userAgreement" href="../../public/index.html">обработку своих персональных данных</a>.
-                  </span>
+                  <label>
+                    <input class="form-check-input" type="checkbox" name="agreeCheckbox" />
+                    <span class="custom-checkbox"></span>
+                    <span class="agreementText">
+                      Отправляя заявку, я даю согласие на
+                      <a href="../../public/index.html">обработку своих персональных данных</a>.
+                      <a href="../../public/index.html">*</a>
+                    </span>
+                  </label>
                 </div>
               </div>
 
@@ -229,27 +232,52 @@ export default {
   font-weight: 500;
   font-size: 14px;
   line-height: 16px;
+  transition: box-shadow 100ms;
   &:focus {
     outline: none;
     text-decoration-skip-box: none;
     border-color: #ee4d31;
     box-shadow: 0 0 9px calc(1px / 4) #ee4d31;
   }
+  &:read-write,
   &::placeholder {
-    font-family: "Montserrat", system-ui;
     font-weight: 500;
     font-size: 14px;
-    padding: 26px 24px;
     color: #FFFFFF;
+  }
+  &:read-write {
+    padding: 26px 24px;
   }
 }
 
-.textElement textarea {
+.textElement textarea,
+.messageText {
   height: 154px;
 }
 
 .userAgree > label {
   cursor: pointer;
+}
+
+.userAgree {
+  margin: 10px 0;
+  > label {
+    display: flex;
+  }
+}
+
+.agreementText {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 12px;
+  color: #FFFFFF;
+  & > a {
+    color: #ee4d31;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 input[name="agreeCheckbox"] {
@@ -259,7 +287,7 @@ input[name="agreeCheckbox"] {
 
 .custom-checkbox {
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 13px;
   width: 25px;
   height: 25px;
   border: 2px solid rgba(256, 256, 256, 0.5);
@@ -291,6 +319,23 @@ input[name="agreeCheckbox"]:checked + .custom-checkbox {
   &::after {
     rotate: 0deg;
     opacity: 1;
+  }
+}
+
+.sendButton > .button {
+  width: 100%;
+  height: 56px;
+  color: #FFFFFF;
+  background-color: #F14D34;
+  border: 2px solid #F14D34;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 12px;
+  align-content: center;
+  transition: background-color 300ms;
+  &:hover {
+    background-color: rgba(241, 77, 52, 0);
   }
 }
 
