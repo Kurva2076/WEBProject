@@ -80,6 +80,7 @@
 
               <div class="formElement">
                 <div class="sendButton">
+                  <noscript>type заменить потом на submit</noscript>
                   <button class="button" type="button" form="clientInfo">СВЯЖИТЕСЬ С НАМИ</button>
                 </div>
               </div>
@@ -89,7 +90,37 @@
       </div>
     </div>
     <footer class="footer">
+      <div class="social-network-buttons container">
+        <div class="row">
+          <div class="col">
+            <button name="facebook" type="button">
+              <a href="../../public/index.html"></a>
+            </button>
+          </div>
+          <div class="col">
+            <button name="vkontakte" type="button">
+              <a href="../../public/index.html"></a>
+            </button>
+          </div>
+          <div class="col">
+            <button name="telegram" type="button">
+              <a href="../../public/index.html"></a>
+            </button>
+          </div>
+          <div class="col">
+            <button name="youtube" type="button">
+              <a href="../../public/index.html"></a>
+            </button>
+          </div>
+        </div>
+      </div>
 
+      <div class="created-by-block">
+        <span>
+          Проект ООО «Инитлаб», Краснодар, Россия.<br />
+          Drupal является зарегистрированной торговой маркой Dries Buytaert.
+        </span>
+      </div>
     </footer>
   </div>
 </template>
@@ -113,13 +144,13 @@ export default {
 }
 
 .footer {
-  height: 182px;
+  height: 183px;
   border-bottom: 1px solid rgb(256, 256, 256);
   border-top: 1px solid rgba(192, 192, 192, 0.5);
 }
 
 .block-form-footer-container {
-  background: linear-gradient(254deg, rgba(255, 255, 255, .276) -110%, rgba(255, 255, 255, 0) 69.75%),
+  background: linear-gradient(254deg, rgba(255, 255, 255, .276) -110%, rgba(255, 255, 255, 0) 68.75%),
   url(../assets/img/D.svg) no-repeat bottom right, url(../assets/img/D-flying.svg) no-repeat center top, #040613;
 }
 
@@ -336,6 +367,41 @@ input[name="agreeCheckbox"]:checked + .custom-checkbox {
   transition: background-color 300ms;
   &:hover {
     background-color: rgba(241, 77, 52, 0);
+  }
+}
+
+.social-network-buttons.container {
+
+}
+
+.social-network-buttons > .row {
+  column-gap: 12px;
+  padding: 54px 0 15px;
+  > .col {
+    max-width: 31px !important;
+    min-width: 31px !important;
+    padding: 0;
+  }
+}
+
+.social-network-buttons button {
+  width: 31px;
+  height: 31px;
+  padding: 0;
+  background-color: #F14D34;
+  border: 2px solid #F14D34;
+  border-radius: 5px;
+  transition: background-color 300ms;
+  &:hover {
+    background-color: rgba(241, 77, 52, 0);
+  }
+  > a {
+    display: inline-block;
+    width: 31px;
+    height: 31px;
+    position: relative;
+    right: 2px;
+    bottom: 2px;
   }
 }
 
