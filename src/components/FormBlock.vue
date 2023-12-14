@@ -94,22 +94,30 @@
         <div class="row">
           <div class="col">
             <button name="facebook" type="button">
-              <a href="../../public/index.html"></a>
+              <a href="../../public/index.html">
+                <fa :icon="[ 'fab', 'facebook-f' ]" />
+              </a>
             </button>
           </div>
           <div class="col">
             <button name="vkontakte" type="button">
-              <a href="../../public/index.html"></a>
+              <a href="../../public/index.html">
+                <fa :icon="[ 'fab', 'vk' ]" />
+              </a>
             </button>
           </div>
           <div class="col">
             <button name="telegram" type="button">
-              <a href="../../public/index.html"></a>
+              <a href="../../public/index.html">
+                <fa :icon="[ 'fab', 'telegram-plane' ]" />
+              </a>
             </button>
           </div>
           <div class="col">
             <button name="youtube" type="button">
-              <a href="../../public/index.html"></a>
+              <a href="../../public/index.html">
+                <fa :icon="[ 'fab', 'youtube' ]" />
+              </a>
             </button>
           </div>
         </div>
@@ -404,5 +412,31 @@ input[name="agreeCheckbox"]:checked + .custom-checkbox {
     bottom: 2px;
   }
 }
+
+button[name="facebook"] svg {
+  color: #FFFFFF;
+  width: 10px;
+  height: 31px;
+}
+
+button[name="vkontakte"] svg {
+  color: #FFFFFF;
+  width: 20px;
+  height: 31px;
+}
+
+button[name="telegram"] svg {
+  color: #FFFFFF;
+  width: 15px;
+  height: 31px;
+}
+
+button[name="youtube"] svg {
+  color: #FFFFFF;
+  width: 20px;
+  height: 31px;
+}
+
+
 
 </style>
