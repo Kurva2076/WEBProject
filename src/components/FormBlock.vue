@@ -1,94 +1,102 @@
 <template>
+
   <div class="block-form-footer-container">
-    <div class="block-form-container">
-      <div id="requestForSupport" class="block-form container">
-        <div class="row">
+    <div class="block-form-container container">
+      <div id="requestForSupport" class="block-form">
+        <div class="row justify-content-center">
           <div class="requestMessage col-xs-12 col-md-6">
-            <div class="subtitle">
-              <h2>Оставить заявку на<br />поддержку сайта</h2>
-            </div>
+            <div class="row justify-content-center">
+              <div id="messageInfo" class="col">
+                <div class="subtitle">
+                  <h2 class="fw-bolder">Оставить заявку на<br />поддержку сайта</h2>
+                </div>
 
-            <div class="bodyText">
-              <p>
-                <span>
-                  Срочно нужна поддержка сайта? Ваша команда не успевает справиться самостоятельно или предыдущий
-                  подрядчик не справился с работой? Тогда вам точно к нам! Просто оставьте заявку и наш менеджер с
-                  вами свяжется!
-                </span>
-              </p>
-            </div>
+                <div class="bodyText">
+                  <p>
+                    <span>
+                      Срочно нужна поддержка сайта? Ваша команда не успевает справиться самостоятельно или предыдущий
+                      подрядчик не справился с работой? Тогда вам точно к нам! Просто оставьте заявку и наш менеджер с
+                      вами свяжется!
+                    </span>
+                  </p>
+                </div>
 
-            <div class="contactInformation">
-              <ul>
-                <li class="servicePhone">
-                  <a class="linkPhone" href="tel:88002222673">8 800 222-26-73</a>
-                </li>
-                <li class="serviceEMail">
-                  <a class="linkEMail" href="mailto:info@drupal-coder.ru">info@drupal-coder.ru</a>
-                </li>
-              </ul>
+                <div class="contactInformation fw-bolder">
+                  <ul>
+                    <li class="servicePhone">
+                      <a class="linkPhone fs-2" href="tel:88002222673">8 800 222-26-73</a>
+                    </li>
+                    <li class="serviceEMail">
+                      <a class="linkEMail fs-6" href="mailto:info@drupal-coder.ru">info@drupal-coder.ru</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
 
           <div class="requestForm col-xs-12 col-md-6">
-            <form id="clientInfo">
-              <div class="formElement">
-                <div class="textElement">
-                  <div class="nameText">
-                    <input name="clientName" placeholder="Ваше имя" />
+            <div class="row justify-content-center">
+              <form id="clientInfo" class="col">
+                <div class="formElement">
+                  <div class="textElement">
+                    <div class="nameText">
+                      <input name="clientName" placeholder="Ваше имя" />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="formElement">
-                <div class="textElement">
-                  <div class="phoneText">
-                    <input name="clientPhone" placeholder="Телефон" />
+                <div class="formElement">
+                  <div class="textElement">
+                    <div class="phoneText">
+                      <input name="clientPhone" placeholder="Телефон" />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="formElement">
-                <div class="textElement">
-                  <div class="eMailText">
-                    <input type="email" name="clientEMail" placeholder="E-mail" />
+                <div class="formElement">
+                  <div class="textElement">
+                    <div class="eMailText">
+                      <input type="email" name="clientEMail" placeholder="E-mail" />
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="formElement">
-                <div class="textElement">
-                  <div class="messageText">
-                    <textarea name="clientMessage" placeholder="Ваш комментарий"></textarea>
+                <div class="formElement">
+                  <div class="textElement">
+                    <div class="messageText">
+                      <textarea name="clientMessage" placeholder="Ваш комментарий"></textarea>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="formElement">
-                <div class="userAgree">
-                  <label>
-                    <input class="form-check-input" type="checkbox" name="agreeCheckbox" />
-                    <span class="custom-checkbox"></span>
-                    <span class="agreementText">
-                      Отправляя заявку, я даю согласие на
-                      <a href="../../public/index.html">обработку своих персональных данных</a>.
-                      <a href="../../public/index.html">*</a>
-                    </span>
-                  </label>
+                <div class="formElement">
+                  <div class="userAgree">
+                    <label>
+                      <input class="form-check-input" type="checkbox" name="agreeCheckbox" />
+                      <span class="custom-checkbox"></span>
+                      <span class="agreementText">
+                        Отправляя заявку, я даю согласие на
+                        <a href="../../public/index.html">обработку своих персональных данных</a>.
+                        <a href="../../public/index.html">*</a>
+                      </span>
+                    </label>
+                  </div>
                 </div>
-              </div>
 
-              <div class="formElement">
-                <div class="sendButton">
-                  <noscript>type заменить потом на submit</noscript>
-                  <button class="button" type="button" form="clientInfo">СВЯЖИТЕСЬ С НАМИ</button>
+                <div class="formElement">
+                  <div class="sendButton">
+                    <noscript>type заменить потом на submit</noscript>
+                    <button class="button" type="button" form="clientInfo">СВЯЖИТЕСЬ С НАМИ</button>
+                  </div>
                 </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
     <footer class="footer">
       <div class="social-network-buttons container">
         <div class="row">
@@ -99,6 +107,7 @@
               </a>
             </button>
           </div>
+
           <div class="col">
             <button name="vkontakte" type="button">
               <a href="../../public/index.html">
@@ -106,6 +115,7 @@
               </a>
             </button>
           </div>
+
           <div class="col">
             <button name="telegram" type="button">
               <a href="../../public/index.html">
@@ -113,6 +123,7 @@
               </a>
             </button>
           </div>
+
           <div class="col">
             <button name="youtube" type="button">
               <a href="../../public/index.html">
@@ -121,16 +132,17 @@
             </button>
           </div>
         </div>
-      </div>
 
-      <div class="created-by-block">
-        <span>
-          Проект ООО «Инитлаб», Краснодар, Россия.<br />
-          Drupal является зарегистрированной торговой маркой Dries Buytaert.
-        </span>
+        <div class="created-by-block">
+          <span>
+            Проект ООО «Инитлаб», Краснодар, Россия.<br />
+            Drupal является зарегистрированной торговой маркой Dries Buytaert.
+          </span>
+        </div>
       </div>
     </footer>
   </div>
+
 </template>
 
 <script>
@@ -145,39 +157,42 @@ export default {
 
 .block-form-container {
   min-height: 547px;
-}
-
-.block-form {
-  padding-top: 27px;
-}
-
-.footer {
-  height: 183px;
-  border-bottom: 1px solid rgb(256, 256, 256);
-  border-top: 1px solid rgba(192, 192, 192, 0.5);
+  padding-top: 28px;
+  margin-bottom: 88px;
 }
 
 .block-form-footer-container {
-  background: linear-gradient(254deg, rgba(255, 255, 255, .276) -110%, rgba(255, 255, 255, 0) 68.75%),
+  background: linear-gradient(254deg, rgba(256, 256, 256, .276) -110%, rgba(256, 256, 256, 0) 68.75%),
   url(../assets/img/D.svg) no-repeat bottom right, url(../assets/img/D-flying.svg) no-repeat center top, #040613;
 }
 
-.subtitle,
-.contactInformation {
-  color: #FFFFFF;
-}
-
-.bodyText {
-  color: #BBBCBE;
+#messageInfo {
+  max-width: 504px;
 }
 
 .subtitle {
+  padding-top: 10px;
+  padding-bottom: 12px;
   text-align: center;
+
+  & > h2 {
+    font-size: 42px;
+    line-height: 51px;
+  }
 }
 
 .bodyText,
 .contactInformation {
   text-align: justify;
+}
+
+.bodyText {
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+.contactInformation {
+  margin-top: 140px
 }
 
 @media (min-width: 601px) {
@@ -191,7 +206,7 @@ export default {
   .subtitle,
   .bodyText,
   .contactInformation {
-    text-align: justify;
+    text-align: start;
   }
 }
 
@@ -199,62 +214,61 @@ export default {
   padding-left: 0;
 }
 
-.servicePhone,
-.serviceEMail {
-  &::marker {
-    content: none;
-  }
+.servicePhone::marker,
+.serviceEMail::marker {
+  content: none;
 }
 
-.linkPhone::before {
-  content: "";
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  background: url(../assets/img/phone-icon.svg) no-repeat center;
-  margin-right: 26px;
-  position: relative;
-  top: 2px;
-  left: 2px;
-}
-
+.linkPhone::before,
 .linkEMail::before {
   content: "";
   display: inline-block;
-  width: 24px;
   height: 18px;
+  margin-right: 26px;
+}
+
+.linkPhone::before {
+  width: 18px;
+  background: url(../assets/img/phone-icon.svg) no-repeat center;
+  position: relative;
+  top: 2px;
+  left: 5px;
+}
+
+.linkEMail::before {
+  width: 24px;
   background: url(../assets/img/email-icon.svg) no-repeat center;
   margin-right: 20px;
   margin-top: 2px;
   position: relative;
   top: 4px;
-}
-
-.linkPhone,
-.linkPhone:active,
-.linkPhone:hover,
-.linkEMail,
-.linkEMail:active,
-.linkEMail:hover{
-  color: #FFFFFF;
+  left: 2px;
 }
 
 .linkPhone,
 .linkEMail {
   font-size: 14px;
   font-weight: 700;
+  color: #FFFFFF;
+
+  &:active,
+  &:hover {
+    color: #FFFFFF;
+  }
 }
 
 .linkPhone,
 .linkPhone:active,
 .linkPhone:hover {
   text-decoration: none !important;
-  font-size: 19px;
+}
+
+.requestForm {
+  padding-bottom: 79px;
 }
 
 #clientInfo {
-  margin-top: 1px;
-  max-width: 480px;
+  max-width: 504px;
 }
 
 .formElement > .textElement {
@@ -272,35 +286,35 @@ export default {
   font-size: 14px;
   line-height: 16px;
   transition: box-shadow 100ms;
+
   &:focus {
     outline: none;
     text-decoration-skip-box: none;
     border-color: #ee4d31;
     box-shadow: 0 0 9px calc(1px / 4) #ee4d31;
   }
+
   &:read-write,
   &::placeholder {
     font-weight: 500;
     font-size: 14px;
     color: #FFFFFF;
   }
+
   &:read-write {
     padding: 26px 24px;
   }
 }
 
-.textElement textarea,
-.messageText {
+.textElement textarea {
   height: 154px;
 }
 
-.userAgree > label {
-  cursor: pointer;
-}
-
 .userAgree {
-  margin: 10px 0;
-  > label {
+  margin: 3px 0 10px;
+
+  & > label {
+    cursor: pointer;
     display: flex;
   }
 }
@@ -310,9 +324,11 @@ export default {
   font-weight: 400;
   font-size: 12px;
   color: #FFFFFF;
+
   & > a {
     color: #ee4d31;
     text-decoration: none;
+
     &:hover {
       text-decoration: underline;
     }
@@ -331,6 +347,20 @@ input[name="agreeCheckbox"] {
   height: 25px;
   border: 2px solid rgba(256, 256, 256, 0.5);
   border-radius: 5px;
+
+  &::after {
+    display: block;
+    content: "";
+    position: relative;
+    width: 21px;
+    height: 21px;
+    background-image: url("../assets/img/checked-checkbox-icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    rotate: -30deg;
+    opacity: 0;
+    transition: rotate 400ms, opacity 200ms;
+  }
 }
 
 input[name="agreeCheckbox"]:focus + .custom-checkbox,
@@ -339,22 +369,9 @@ input[name="agreeCheckbox"]:checked:focus + .custom-checkbox {
   box-shadow: 0 0 9px calc(1px / 4) #ee4d31;
 }
 
-.custom-checkbox::after {
-  display: block;
-  content: "";
-  position: relative;
-  width: 21px;
-  height: 21px;
-  background-image: url("../assets/img/checked-checkbox-icon.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  rotate: -30deg;
-  opacity: 0;
-  transition: rotate 400ms, opacity 200ms;
-}
-
 input[name="agreeCheckbox"]:checked + .custom-checkbox {
   border-color: #838488;
+
   &::after {
     rotate: 0deg;
     opacity: 1;
@@ -373,18 +390,26 @@ input[name="agreeCheckbox"]:checked + .custom-checkbox {
   line-height: 12px;
   align-content: center;
   transition: background-color 300ms;
+
   &:hover {
     background-color: rgba(241, 77, 52, 0);
   }
 }
 
-.social-network-buttons.container {
+.footer {
+  height: 183px;
+  border-top: 1px solid rgba(256, 256, 256, 0.25);
 
+  & > .container {
+    --bs-gutter-x: 11rem;
+  }
 }
 
 .social-network-buttons > .row {
+  --bs-gutter-x: 0;
   column-gap: 12px;
-  padding: 54px 0 15px;
+  padding: 54px 0 10px;
+
   > .col {
     max-width: 31px !important;
     min-width: 31px !important;
@@ -400,10 +425,12 @@ input[name="agreeCheckbox"]:checked + .custom-checkbox {
   border: 2px solid #F14D34;
   border-radius: 5px;
   transition: background-color 300ms;
+
   &:hover {
     background-color: rgba(241, 77, 52, 0);
   }
-  > a {
+
+  & > a {
     display: inline-block;
     width: 31px;
     height: 31px;
@@ -413,30 +440,21 @@ input[name="agreeCheckbox"]:checked + .custom-checkbox {
   }
 }
 
-button[name="facebook"] svg {
-  color: #FFFFFF;
-  width: 10px;
-  height: 31px;
-}
-
-button[name="vkontakte"] svg {
-  color: #FFFFFF;
-  width: 20px;
-  height: 31px;
-}
-
-button[name="telegram"] svg {
-  color: #FFFFFF;
-  width: 15px;
-  height: 31px;
-}
-
+button[name="facebook"] svg,
+button[name="vkontakte"] svg,
+button[name="telegram"] svg,
 button[name="youtube"] svg {
   color: #FFFFFF;
   width: 20px;
   height: 31px;
 }
 
+button[name="facebook"] svg {
+  width: 10px;
+}
 
+button[name="telegram"] svg {
+  width: 15px;
+}
 
 </style>

@@ -19,13 +19,13 @@ export default {
   src: url("./assets/fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
 }
 
-body {
+* {
   margin: 0;
   font-family: "Montserrat", system-ui !important;
 }
 
 #app {
-  color: #2c3e50;
   margin-top: 60px;
+  color: #FFFFFF;
 }
 </style>
