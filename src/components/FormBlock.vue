@@ -2,10 +2,10 @@
 
   <div class="block-form-footer-container">
     <div class="block-form-container container">
-      <div id="requestForSupport" class="block-form">
-        <div class="row justify-content-center">
-          <div class="requestMessage col-xs-12 col-md-6">
-            <div class="row justify-content-center">
+      <div id="requestForSupport" class="block-form row justify-content-center">
+<!--        <div class="row justify-content-center">-->
+          <div class="requestMessage col-xs-12 col-md-6 row">
+<!--            <div class="">-->
               <div id="messageInfo" class="col">
                 <div class="subtitle">
                   <h2 class="fw-bolder">Оставить заявку на<br />поддержку сайта</h2>
@@ -32,11 +32,11 @@
                   </ul>
                 </div>
               </div>
-            </div>
+<!--            </div>-->
           </div>
 
-          <div class="requestForm col-xs-12 col-md-6">
-            <div class="row justify-content-center">
+          <div class="requestForm col-xs-12 col-md-6 row">
+<!--            <div class="row">-->
               <form id="clientInfo" class="col">
                 <div class="formElement">
                   <div class="textElement">
@@ -91,9 +91,9 @@
                   </div>
                 </div>
               </form>
-            </div>
+<!--            </div>-->
           </div>
-        </div>
+<!--        </div>-->
       </div>
     </div>
 
@@ -173,10 +173,31 @@ export default {
   }
 }
 
+@media (min-width: 1200px) {
+  .block-form-container.container {
+    max-width: 1320px;
+  }
+}
+
 .block-form-container {
   min-height: 547px;
   padding-top: 28px;
   margin-bottom: 88px;
+}
+
+@media (min-width: 1200px) {
+  .requestForm.row,
+  .requestMessage.row {
+    width: 605px;
+  }
+
+  .requestForm.row {
+    justify-content: end;
+  }
+
+  .requestMessage.row {
+    justify-content: start;
+  }
 }
 
 #messageInfo {
@@ -412,16 +433,19 @@ input[name="agreeCheckbox"]:checked + .custom-checkbox {
 .footer {
   height: 183px;
   border-top: 1px solid rgba(256, 256, 256, 0.25);
+}
 
-  & > .container {
-    --bs-gutter-x: 11rem;
+@media (min-width: 1200px) {
+  .social-network-buttons.container {
+    max-width: 1320px;
   }
 }
 
 .social-network-buttons > .row {
-  --bs-gutter-x: 0;
+  --bs-gutter-x: -11;
   column-gap: 12px;
-  padding: 54px 0 10px;
+  padding-top: 54px;
+  padding-bottom: 10px;
 
   > .col {
     max-width: 31px !important;
