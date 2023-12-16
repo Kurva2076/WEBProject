@@ -155,15 +155,28 @@ export default {
 
 <style scoped lang="scss">
 
+.block-form-footer-container {
+  background: linear-gradient(254deg, rgba(256, 256, 256, .276) -110%, rgba(256, 256, 256, 0) 68.75%),
+  url(../assets/img/D.svg) no-repeat bottom right, url(../assets/img/D-flying.svg) no-repeat center top, #040613;
+  background-size: auto, 140px, 165px;
+}
+
+@media (min-width: 768px) {
+  .block-form-footer-container {
+    background-size: auto, 230px, 235px;
+  }
+}
+
+@media (min-width: 992px) {
+  .block-form-footer-container {
+    background-size: auto;
+  }
+}
+
 .block-form-container {
   min-height: 547px;
   padding-top: 28px;
   margin-bottom: 88px;
-}
-
-.block-form-footer-container {
-  background: linear-gradient(254deg, rgba(256, 256, 256, .276) -110%, rgba(256, 256, 256, 0) 68.75%),
-  url(../assets/img/D.svg) no-repeat bottom right, url(../assets/img/D-flying.svg) no-repeat center top, #040613;
 }
 
 #messageInfo {
@@ -392,7 +405,7 @@ input[name="agreeCheckbox"]:checked + .custom-checkbox {
   transition: background-color 300ms;
 
   &:hover {
-    background-color: rgba(241, 77, 52, 0);
+    background-color: transparent;
   }
 }
 
@@ -427,7 +440,7 @@ input[name="agreeCheckbox"]:checked + .custom-checkbox {
   transition: background-color 300ms;
 
   &:hover {
-    background-color: rgba(241, 77, 52, 0);
+    background-color: transparent;
   }
 
   & > a {
