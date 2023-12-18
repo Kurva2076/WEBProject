@@ -6,7 +6,7 @@
           <div class="requestMessage col-xs-12 col-md-6 row">
               <div id="messageInfo" class="col">
                 <div class="subtitle">
-                  <h2 class="fw-bolder">Оставить заявку на<br />поддержку сайта</h2>
+                  <h2 class="fw-bold">Оставить заявку на<br />поддержку сайта</h2>
                 </div>
 
                 <div class="bodyText">
@@ -22,10 +22,10 @@
                 <div class="contactInformation fw-bolder">
                   <ul>
                     <li class="servicePhone">
-                      <a class="linkPhone fs-2 fs" href="tel:88002222673">8 800 222-26-73</a>
+                      <a class="linkPhone fs-3 fw-bold" href="tel:88002222673">8 800 222-26-73</a>
                     </li>
                     <li class="serviceEMail">
-                      <a class="linkEMail fs-6" href="mailto:info@drupal-coder.ru">info@drupal-coder.ru</a>
+                      <a class="linkEMail fs-6 fw-bold" href="mailto:info@drupal-coder.ru">info@drupal-coder.ru</a>
                     </li>
                   </ul>
                 </div>
@@ -155,19 +155,9 @@ export default {
   background-size: auto, 140px, 165px;
 }
 
-.block-form-container.container {
-  padding-right: 0;
-  padding-left: 0;
-}
-
 @media (min-width: 768px) {
   .block-form-footer-container {
     background-size: auto, 230px, 235px;
-  }
-
-  .block-form-container.container {
-    padding-right: calc(var(--bs-gutter-x) * .5);
-    padding-left: calc(var(--bs-gutter-x) * .5);
   }
 }
 
@@ -175,16 +165,16 @@ export default {
   .block-form-footer-container {
     background-size: auto;
   }
-
-  .block-form-container.container {
-    max-width: 1000px;
-  }
 }
 
-@media (min-width: 768px) {
+.block-form-container.container {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+@media (min-width: 992px) {
   .block-form-container.container {
-    padding-right: 0;
-    padding-left: 0;
+    max-width: 1000px;
   }
 }
 
@@ -211,9 +201,14 @@ export default {
   margin-right: auto;
 }
 
+.requestForm {
+  padding-bottom: 76px;
+}
+
 .requestForm.row,
 .requestMessage.row {
-  width: 450px;
+  min-width: 150px;
+  max-width: 510px;
   padding-left: 3px;
   padding-right: 3px;
 }
@@ -221,7 +216,8 @@ export default {
 @media (min-width: 768px) {
   .requestForm.row,
   .requestMessage.row {
-    width: 384px;
+    min-width: 384px;
+    max-width: 384px;
     padding-right: calc(var(--bs-gutter-x) * .5);
     padding-left: calc(var(--bs-gutter-x) * .5);
   }
@@ -242,14 +238,24 @@ export default {
 @media (min-width: 992px) {
   .requestForm.row,
   .requestMessage.row {
-    width: 505px;
+    min-width: 495px;
+    max-width: 505px;
   }
 }
 
 @media (min-width: 1200px) {
   .requestForm.row,
   .requestMessage.row {
-    width: 605px;
+    min-width: 605px;
+    max-width: 605px;
+  }
+
+  .requestForm.row {
+    padding-right: 10px;
+  }
+
+  .requestMessage.row {
+    padding-left: 10px;
   }
 }
 
@@ -268,10 +274,15 @@ export default {
   }
 }
 
+@media (min-width: 601px) {
+  .subtitle > h2 {
+    font-size: 25px;
+  }
+}
+
 @media (min-width: 768px) {
   .subtitle {
     padding-top: 5px;
-    text-align: center;
 
     & > h2 {
       font-size: 34px;
@@ -283,7 +294,6 @@ export default {
 @media (min-width: 992px) {
   .subtitle {
     padding-top: 10px;
-    text-align: center;
 
     & > h2 {
       font-size: 42px;
@@ -302,16 +312,6 @@ export default {
   opacity: 0.75;
 }
 
-.contactInformation {
-  margin-top: 25px
-}
-
-@media (min-width: 992px) {
-  .contactInformation {
-    margin-top: 140px
-  }
-}
-
 @media (min-width: 601px) {
   .bodyText,
   .contactInformation {
@@ -327,8 +327,18 @@ export default {
   }
 }
 
-.contactInformation > ul {
-  padding-left: 0;
+.contactInformation {
+  margin-top: 25px;
+
+  & > ul {
+    padding-left: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .contactInformation {
+    margin-top: 140px;
+  }
 }
 
 .servicePhone::marker,
@@ -341,11 +351,11 @@ export default {
   content: "";
   display: inline-block;
   height: 18px;
-  margin-right: 26px;
 }
 
 .linkPhone::before {
   width: 18px;
+  margin-right: 26px;
   background: url(../assets/img/phone-icon.svg) no-repeat center;
   position: relative;
   top: 2px;
@@ -376,10 +386,6 @@ export default {
 .linkPhone:active,
 .linkPhone:hover {
   text-decoration: none !important;
-}
-
-.requestForm {
-  padding-bottom: 76px;
 }
 
 #clientInfo {
@@ -482,12 +488,6 @@ input[name="agreeCheckbox"] {
   }
 }
 
-input[name="agreeCheckbox"]:focus + .custom-checkbox,
-input[name="agreeCheckbox"]:checked:focus + .custom-checkbox {
-  border-color: #ee4d31;
-  box-shadow: 0 0 9px calc(1px / 4) #ee4d31;
-}
-
 input[name="agreeCheckbox"]:checked + .custom-checkbox {
   border-color: #838488;
 
@@ -495,6 +495,12 @@ input[name="agreeCheckbox"]:checked + .custom-checkbox {
     rotate: 0deg;
     opacity: 1;
   }
+}
+
+input[name="agreeCheckbox"]:focus + .custom-checkbox,
+input[name="agreeCheckbox"]:checked:focus + .custom-checkbox {
+  border-color: #ee4d31;
+  box-shadow: 0 0 9px calc(1px / 4) #ee4d31;
 }
 
 .sendButton > .button {
@@ -516,24 +522,34 @@ input[name="agreeCheckbox"]:checked + .custom-checkbox {
 }
 
 .footer {
-  height: 183px;
+  min-height: 183px;
+  max-height: 550px;
   border-top: 1px solid rgba(256, 256, 256, 0.25);
+}
+
+.social-network-buttons.container {
+  min-width: 100%;
+  max-width: 500px;
+  padding-bottom: 34px;
 }
 
 @media (min-width: 768px) {
   .social-network-buttons.container {
-    max-width: 710px;
+    min-width: 750px;
+    max-width: 750px;
   }
 }
 
 @media (min-width: 992px) {
   .social-network-buttons.container {
-    max-width: 960px;
+    min-width: 975px;
+    max-width: 975px;
   }
 }
 
 @media (min-width: 1200px) {
   .social-network-buttons.container {
+    min-width: 1160px;
     max-width: 1160px;
   }
 }
