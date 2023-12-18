@@ -3,9 +3,7 @@
   <div class="block-form-footer-container">
     <div class="block-form-container container">
       <div id="requestForSupport" class="block-form row justify-content-center">
-<!--        <div class="row justify-content-center">-->
           <div class="requestMessage col-xs-12 col-md-6 row">
-<!--            <div class="">-->
               <div id="messageInfo" class="col">
                 <div class="subtitle">
                   <h2 class="fw-bolder">Оставить заявку на<br />поддержку сайта</h2>
@@ -32,11 +30,9 @@
                   </ul>
                 </div>
               </div>
-<!--            </div>-->
           </div>
 
           <div class="requestForm col-xs-12 col-md-6 row">
-<!--            <div class="row">-->
               <form id="clientInfo" class="col">
                 <div class="formElement">
                   <div class="textElement">
@@ -78,7 +74,7 @@
                       <span class="agreementText">
                         Отправляя заявку, я даю согласие на
                         <a href="../../public/index.html">обработку своих персональных данных</a>.
-                        <a href="../../public/index.html">*</a>
+                        <a class="agreement" href="../../public/index.html">*</a>
                       </span>
                     </label>
                   </div>
@@ -91,9 +87,7 @@
                   </div>
                 </div>
               </form>
-<!--            </div>-->
           </div>
-<!--        </div>-->
       </div>
     </div>
 
@@ -171,6 +165,17 @@ export default {
   .block-form-footer-container {
     background-size: auto;
   }
+
+  .block-form-container.container {
+    max-width: 1000px;
+  }
+}
+
+@media (min-width: 768px) {
+  .block-form-container.container {
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -182,21 +187,38 @@ export default {
 .block-form-container {
   min-height: 547px;
   padding-top: 28px;
-  margin-bottom: 88px;
+}
+
+@media (min-width: 768px) {
+  .requestForm.row,
+  .requestMessage.row {
+    width: 384px;
+  }
+
+  .requestForm.row {
+    padding-left: 15px;
+    padding-right: 0;
+    justify-content: end;
+  }
+
+  .requestMessage.row {
+    padding-left: 0;
+    padding-right: 15px;
+    justify-content: start;
+  }
+}
+
+@media (min-width: 992px) {
+  .requestForm.row,
+  .requestMessage.row {
+    width: 505px;
+  }
 }
 
 @media (min-width: 1200px) {
   .requestForm.row,
   .requestMessage.row {
     width: 605px;
-  }
-
-  .requestForm.row {
-    justify-content: end;
-  }
-
-  .requestMessage.row {
-    justify-content: start;
   }
 }
 
@@ -215,6 +237,32 @@ export default {
   }
 }
 
+@media (min-width: 768px) {
+  .subtitle {
+    padding-top: 5px;
+    padding-bottom: 12px;
+    text-align: center;
+
+    & > h2 {
+      font-size: 34px;
+      line-height: 40px;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .subtitle {
+    padding-top: 10px;
+    padding-bottom: 12px;
+    text-align: center;
+
+    & > h2 {
+      font-size: 42px;
+      line-height: 51px;
+    }
+  }
+}
+
 .bodyText,
 .contactInformation {
   text-align: justify;
@@ -226,7 +274,13 @@ export default {
 }
 
 .contactInformation {
-  margin-top: 140px
+  margin-top: 25px
+}
+
+@media (min-width: 992px) {
+  .contactInformation {
+    margin-top: 140px
+  }
 }
 
 @media (min-width: 601px) {
@@ -298,7 +352,7 @@ export default {
 }
 
 .requestForm {
-  padding-bottom: 79px;
+  padding-bottom: 76px;
 }
 
 #clientInfo {
@@ -366,6 +420,10 @@ export default {
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  & > a[class="agreement"] {
+    color: #FF0000;
   }
 }
 
@@ -435,9 +493,21 @@ input[name="agreeCheckbox"]:checked + .custom-checkbox {
   border-top: 1px solid rgba(256, 256, 256, 0.25);
 }
 
+@media (min-width: 768px) {
+  .social-network-buttons.container {
+    max-width: 710px;
+  }
+}
+
+@media (min-width: 992px) {
+  .social-network-buttons.container {
+    max-width: 960px;
+  }
+}
+
 @media (min-width: 1200px) {
   .social-network-buttons.container {
-    max-width: 1320px;
+    max-width: 1160px;
   }
 }
 
