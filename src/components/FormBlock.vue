@@ -22,7 +22,7 @@
                 <div class="contactInformation fw-bolder">
                   <ul>
                     <li class="servicePhone">
-                      <a class="linkPhone fs-2" href="tel:88002222673">8 800 222-26-73</a>
+                      <a class="linkPhone fs-2 fs" href="tel:88002222673">8 800 222-26-73</a>
                     </li>
                     <li class="serviceEMail">
                       <a class="linkEMail fs-6" href="mailto:info@drupal-coder.ru">info@drupal-coder.ru</a>
@@ -155,9 +155,19 @@ export default {
   background-size: auto, 140px, 165px;
 }
 
+.block-form-container.container {
+  padding-right: 0;
+  padding-left: 0;
+}
+
 @media (min-width: 768px) {
   .block-form-footer-container {
     background-size: auto, 230px, 235px;
+  }
+
+  .block-form-container.container {
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
   }
 }
 
@@ -186,13 +196,34 @@ export default {
 
 .block-form-container {
   min-height: 547px;
-  padding-top: 28px;
+  padding-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .block-form-container {
+    padding-top: 28px;
+  }
+}
+
+.block-form.row {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.requestForm.row,
+.requestMessage.row {
+  width: 450px;
+  padding-left: 3px;
+  padding-right: 3px;
 }
 
 @media (min-width: 768px) {
   .requestForm.row,
   .requestMessage.row {
     width: 384px;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
   }
 
   .requestForm.row {
@@ -227,20 +258,19 @@ export default {
 }
 
 .subtitle {
-  padding-top: 10px;
+  padding-top: 15px;
   padding-bottom: 12px;
   text-align: center;
 
   & > h2 {
-    font-size: 42px;
-    line-height: 51px;
+    font-size: 22px;
+    line-height: 27px;
   }
 }
 
 @media (min-width: 768px) {
   .subtitle {
     padding-top: 5px;
-    padding-bottom: 12px;
     text-align: center;
 
     & > h2 {
@@ -253,7 +283,6 @@ export default {
 @media (min-width: 992px) {
   .subtitle {
     padding-top: 10px;
-    padding-bottom: 12px;
     text-align: center;
 
     & > h2 {
@@ -335,8 +364,6 @@ export default {
 
 .linkPhone,
 .linkEMail {
-  font-size: 14px;
-  font-weight: 700;
   color: #FFFFFF;
 
   &:active,
