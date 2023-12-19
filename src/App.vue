@@ -26,6 +26,5 @@ export default {
 
 #app {
   margin-top: 60px;
-  color: #FFFFFF;
 }
 </style>

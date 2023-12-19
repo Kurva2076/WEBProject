@@ -150,6 +150,7 @@ export default {
 <style scoped lang="scss">
 
 .block-form-footer-container {
+  color: #FFFFFF;
   background: linear-gradient(254deg, rgba(256, 256, 256, .276) -110%, rgba(256, 256, 256, 0) 68.75%),
   url(../assets/img/D.svg) no-repeat bottom right, url(../assets/img/D-flying.svg) no-repeat center top, #040613;
   background-size: auto, 140px, 165px;
