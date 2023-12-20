@@ -16,13 +16,13 @@ export default {
 <style lang="scss">
 
 @font-face {
-  font-family: "Montserrat";
+  font-family: "Montserrat-Regular";
   src: url("./assets/fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
 }
 
 * {
   margin: 0;
-  font-family: "Montserrat", system-ui !important;
+  font-family: "Montserrat-Regular", system-ui !important;
 }
 
 </style>
