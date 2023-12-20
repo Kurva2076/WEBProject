@@ -1,19 +1,20 @@
 <template>
-  <FormBlock />
+  <TariffsBlock />
 </template>
 
 <script>
-import FormBlock from "@/components/FormBlock.vue";
+import TariffsBlock from "@/components/TariffsBlock.vue";
 
 export default {
   name: 'App',
   components: {
-    FormBlock
+    TariffsBlock
   }
 }
 </script>
 
 <style lang="scss">
+
 @font-face {
   font-family: "Montserrat";
   src: url("./assets/fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
@@ -24,7 +25,4 @@ export default {
   font-family: "Montserrat", system-ui !important;
 }
 
-#app {
-  margin-top: 60px;
-}
 </style>
