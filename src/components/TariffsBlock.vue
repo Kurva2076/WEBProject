@@ -1,67 +1,65 @@
 <template>
   <section id="block-tariffs">
     <div class="block-tariffs-container container">
-      <h2 class="title text-center fs-4">Тарифы</h2>
+      <h2 class="title text-center fs-2">Тарифы</h2>
 
-      <div class="tariffs-block">
-        <div class="tariffs-row row justify-content-center" tabindex="1">
-          <div class="starting-tariff tariff-block col-12" tabindex="2">
-            <div class="tariff-name">
-              <h3 class="fs-5">Стартовый</h3>
-            </div>
-
-            <div class="conditions-and-advantages">
-              <ul class="fs-6">
-                <li><span>Консультации и работы по SEO</span></li>
-                <li><span>Услуги дизайнера</span></li>
-                <li><span>Неиспользованные оплаченные часы переносятся на следующий месяц</span></li>
-                <li><span>Предоплата от 6 000 рублей в месяц</span></li>
-              </ul>
-            </div>
-
-            <div class="connected-button">
-              <button type="button">СВЯЖИТЕСЬ С НАМИ!</button>
-            </div>
+      <div class="tariffs-block row justify-content-center" tabindex="1">
+        <div class="starting-tariff tariff-block col-12">
+          <div class="tariff-name">
+            <h3 class="fs-5">Стартовый</h3>
           </div>
 
-          <div class="business-tariff tariff-block col-12" tabindex="3">
-            <div class="tariff-name">
-              <h3 class="fs-5">Бизнес</h3>
-            </div>
-
-            <div class="conditions-and-advantages">
-              <ul class="fs-6">
-                <li><span>Консультации и работы по SEO</span></li>
-                <li><span>Услуги дизайнера</span></li>
-                <li><span>Высокое время реакции - до 2 рабочих дней</span></li>
-                <li><span>Неиспользованные оплаченные часы не переносятся</span></li>
-                <li><span>Предоплата от 30 000 рублей в месяц</span></li>
-              </ul>
-            </div>
-
-            <div class="connected-button">
-              <button type="button">СВЯЖИТЕСЬ С НАМИ!</button>
-            </div>
+          <div class="conditions-and-advantages">
+            <ul class="fs-6">
+              <li><span>Консультации и работы по SEO</span></li>
+              <li><span>Услуги дизайнера</span></li>
+              <li><span>Неиспользованные оплаченные часы переносятся на следующий месяц</span></li>
+              <li><span>Предоплата от 6 000 рублей в месяц</span></li>
+            </ul>
           </div>
 
-          <div class="VIP-tariff tariff-block col-12" tabindex="4">
-            <div class="tariff-name">
-              <h3 class="fs-5">VIP</h3>
-            </div>
+          <div class="connected-button">
+            <button type="button">СВЯЖИТЕСЬ С НАМИ!</button>
+          </div>
+        </div>
 
-            <div class="conditions-and-advantages">
-              <ul class="fs-6">
-                <li><span>Консультации и работы по SEO</span></li>
-                <li><span>Услуги дизайнера</span></li>
-                <li><span>Максимальное время реакции - в день обращения</span></li>
-                <li><span>Неиспользованные оплаченные часы не переносятся</span></li>
-                <li><span>Предоплата от 270 000 рублей в месяц</span></li>
-              </ul>
-            </div>
+        <div class="business-tariff tariff-block col-12">
+          <div class="tariff-name">
+            <h3 class="fs-5">Бизнес</h3>
+          </div>
 
-            <div class="connected-button">
-              <button type="button">СВЯЖИТЕСЬ С НАМИ!</button>
-            </div>
+          <div class="conditions-and-advantages">
+            <ul class="fs-6">
+              <li><span>Консультации и работы по SEO</span></li>
+              <li><span>Услуги дизайнера</span></li>
+              <li><span>Высокое время реакции - до 2 рабочих дней</span></li>
+              <li><span>Неиспользованные оплаченные часы не переносятся</span></li>
+              <li><span>Предоплата от 30 000 рублей в месяц</span></li>
+            </ul>
+          </div>
+
+          <div class="connected-button">
+            <button type="button">СВЯЖИТЕСЬ С НАМИ!</button>
+          </div>
+        </div>
+
+        <div class="VIP-tariff tariff-block col-12">
+          <div class="tariff-name">
+            <h3 class="fs-5">VIP</h3>
+          </div>
+
+          <div class="conditions-and-advantages">
+            <ul class="fs-6">
+              <li><span>Консультации и работы по SEO</span></li>
+              <li><span>Услуги дизайнера</span></li>
+              <li><span>Максимальное время реакции - в день обращения</span></li>
+              <li><span>Неиспользованные оплаченные часы не переносятся</span></li>
+              <li><span>Предоплата от 270 000 рублей в месяц</span></li>
+            </ul>
+          </div>
+
+          <div class="connected-button">
+            <button type="button">СВЯЖИТЕСЬ С НАМИ!</button>
           </div>
         </div>
       </div>
@@ -89,19 +87,20 @@ const win = window;
 const doc = document;
 
 win.addEventListener("DOMContentLoaded", function () {
-  const tariffsBlock = doc.getElementById("block-tariffs");
-  const tariffsBlocksCollection = doc.getElementsByClassName("tariff-block");
-  const tariffsBlocks = Array.prototype.slice.call(tariffsBlocksCollection);
-  const tariffsRowCollection = doc.getElementsByClassName("tariffs-row")[0];
-  tariffsBlocksCollection[1].focus({preventScroll: true});
-  tariffsBlock.addEventListener("touchstart", function () {
-    setTimeout(function () {
-      const activeElementHTML = doc.activeElement;
-      const activeElement = doc.getElementsByClassName(activeElementHTML.className)[0];
-      if (false === tariffsBlocks.includes(activeElement) && activeElement !== tariffsRowCollection) {
-        tariffsBlocksCollection[1].focus({preventScroll: true});
-      }
-    }, 150);
+  const tariffsBlock = doc.getElementsByClassName("tariffs-block")[0];
+  const businessTariff = doc.querySelector(".business-tariff");
+  businessTariff.classList.add("hover");
+  tariffsBlock.addEventListener("focus", function () {
+    businessTariff.classList.remove("hover");
+  });
+  tariffsBlock.addEventListener("blur", function () {
+    businessTariff.classList.add("hover");
+  });
+  tariffsBlock.addEventListener("mouseover", function () {
+    businessTariff.classList.remove("hover");
+  });
+  tariffsBlock.addEventListener("mouseout", function () {
+    businessTariff.classList.add("hover");
   });
 });
 
@@ -113,30 +112,27 @@ export default {
 
 <style scoped lang="scss">
 
-//#block-tariffs {
-//  background: #FFFFFF url("../assets/img/simple-background-D.svg") no-repeat right top;
-//  //background-size: cover;
-//  background-size: 200vw 200vh;
-//}
-//
-//@media (min-width: 768px) {
-//  #block-tariffs {
-//    background-size: 58%;
-//  }
-//}
-
-//.block-tariffs-container {
-//  max-width: 428px;
-//}
-
-.block-tariffs-container {
-  margin-top: 107px;
-  margin-bottom: 45px;
+#block-tariffs {
+  background: #FFFFFF url("../assets/img/simple-background-D.svg") no-repeat right top;
+  background-size: cover;
 }
 
-.tariffs-block > .row {
+@media (min-width: 768px) {
+  #block-tariffs {
+    background-size: 58%;
+  }
+}
+
+.block-tariffs-container {
+  padding: 107px 0 30px;
+  max-width: 100%;
+}
+
+.tariffs-block.row {
   width: 100%;
   margin: auto;
+  padding-left: 12px;
+  padding-right: 12px;
 
   &:focus {
     outline: none;
@@ -150,15 +146,26 @@ export default {
 
 .title {
   font-family: "Montserrat-Bold", system-ui !important;
-  margin-bottom: 18px;
+  margin-bottom: 15px;
 }
 
 .tariff-block {
   max-width: 404px;
   margin-bottom: 30px;
-  border: 2px solid #EEEEEE;
+  border: calc(1px + 1px / 2) solid #EEEEEE;
   border-radius: 5px;
+  background-color: #FFFFFF;
   transition: box-shadow 300ms;
+}
+
+.tariff-block:hover,
+.business-tariff.hover {
+  box-shadow: 0 4px 50px rgba(162, 162, 162, .25);
+
+  & > .connected-button > button {
+    color: #FFFFFF;
+    background-color: #F14D34;
+  }
 }
 
 .tariff-name {
@@ -210,28 +217,18 @@ export default {
   }
 }
 
-.tariff-block:focus {
-  outline: none;
-  box-shadow: 0 4px 50px rgba(162, 162, 162, .25);
-
-  & > .connected-button > button {
-    color: #FFFFFF;
-    background-color: #F14D34;
-  }
-}
-
 button:focus {
   outline: none;
 }
 
 .individual-tariff-block {
+  max-width: 404px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 404px;
 }
 
 .service-suggestion > p > span {
-  color: rgba(5, 12, 51, 0.5);
+  color: rgba(19, 32, 102, 0.4);
 }
 
 .create-individual-tariff > p > a {
