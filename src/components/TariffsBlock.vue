@@ -74,7 +74,7 @@
         </div>
 
         <div class="create-individual-tariff">
-          <p>
+          <p class="fw-bold">
             <a href="../../public/index.html">ПОЛУЧИТЬ ИНДИВИДУАЛЬНЫЙ ТАРИФ</a>
           </p>
         </div>
@@ -98,7 +98,6 @@ win.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () {
       const activeElementHTML = doc.activeElement;
       const activeElement = doc.getElementsByClassName(activeElementHTML.className)[0];
-      // console.log(activeElement);
       if (false === tariffsBlocks.includes(activeElement) && activeElement !== tariffsRowCollection) {
         tariffsBlocksCollection[1].focus({preventScroll: true});
       }
@@ -131,7 +130,8 @@ export default {
 //}
 
 .block-tariffs-container {
-  padding-top: 107px;
+  margin-top: 107px;
+  margin-bottom: 45px;
 }
 
 .tariffs-block > .row {
@@ -230,10 +230,23 @@ button:focus {
   max-width: 404px;
 }
 
-.create-individual-tariff {
+.service-suggestion > p > span {
+  color: rgba(5, 12, 51, 0.5);
+}
 
-  & a:focus {
+.create-individual-tariff > p > a {
+  color: #050C33;
+  font-size: 12px;
+  transition: color 500ms;
+
+  &:focus {
     outline: none;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: #EE512E;
   }
 }
 
