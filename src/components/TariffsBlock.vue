@@ -121,6 +121,7 @@ export default {
   margin-bottom: 40px;
   border: 2px solid #EEEEEE;
   border-radius: 5px;
+  transition: box-shadow 300ms;
 }
 
 .tariff-name {
@@ -149,12 +150,28 @@ export default {
 }
 
 .connected-button {
-  //max-width: 100%;
   margin: 40px 0 30px;
 
   & > button {
     width: 100%;
-    //bo
+    height: 56px;
+    color: #F14D34;
+    background-color: transparent;
+    border: 2px solid #F14D34;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 12px;
+    transition: color 300ms, background-color 300ms;
+  }
+}
+
+.tariff-block:hover {
+  box-shadow: 0 0 5px gray;
+
+  & > .connected-button > button{
+    color: #FFFFFF;
+    background-color: #F14D34;
   }
 }
 
