@@ -4,6 +4,7 @@
 
 <template>
 FAQ
+  faq
 </template>
 
 <style scoped lang="scss">
