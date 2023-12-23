@@ -142,6 +142,13 @@ export default {
   }
 }
 
+@media (min-width: 992px) {
+  .block-tariffs-container {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
 .tariffs-block.row {
   justify-content: center;
   width: 100%;
@@ -159,19 +166,19 @@ export default {
 @media (min-width: 768px) {
   .tariffs-block.row {
     max-width: 744px;
-    justify-content: center;
   }
 }
 
 @media (min-width: 992px) {
   .tariffs-block.row {
-    max-width: 940px;
-    justify-content: center;
+    max-width: 972px;
+    justify-content: space-between;
+  }
+}
 
-    & > .col-12 {
-      margin-left: auto;
-      margin-right: auto;
-    }
+@media (min-width: 1200px) {
+  .tariffs-block.row {
+    max-width: 1180px;
   }
 }
 
@@ -199,12 +206,19 @@ export default {
   }
 }
 
+@media (min-width: 1200px) {
+  .title {
+    font-size: 40px !important;
+    margin-bottom: 65px;
+  }
+}
+
 .tariff-block {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 30px;
-  padding-right: calc(var(--bs-gutter-x) * .5);
-  padding-left: calc(var(--bs-gutter-x) * .5);
+  padding-right: 12px;
+  padding-left: 12px;
   max-width: 404px;
   border: calc(1px + 1px / 2) solid #EEEEEE;
   border-radius: 5px;
@@ -215,15 +229,23 @@ export default {
 @media (min-width: 768px) {
   .tariff-block {
     width: 220px;
+    padding-right: 20px;
+    padding-left: 20px;
     transition: scale 500ms, box-shadow 500ms;
   }
 }
 
 @media (min-width: 992px) {
   .tariff-block {
-    width: 291px;
-    //margin-left: 0;
-    //margin-right: 0;
+    width: 292px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .tariff-block {
+    width: 358px;
+    padding-right: 30px;
+    padding-left: 30px;
   }
 }
 
@@ -255,6 +277,12 @@ export default {
   }
 }
 
+@media (min-width: 768px) {
+  .tariff-name > h3 {
+    margin: 70px 0 25px;
+  }
+}
+
 .conditions-and-advantages > ul {
   padding-left: 15px;
 
@@ -276,6 +304,16 @@ export default {
   }
 }
 
+@media (min-width: 992px) {
+  .conditions-and-advantages > ul > li {
+    line-height: 20px;
+
+    & > span {
+      font-size: 16px !important;
+    }
+  }
+}
+
 .connected-button {
   margin: 38px 0 28px;
 
@@ -293,6 +331,18 @@ export default {
   }
 }
 
+@media (min-width: 768px) {
+  .connected-button {
+    margin: 24px 0 35px;
+  }
+}
+
+@media (min-width: 992px) {
+  .connected-button {
+    margin: 41px 0 58px;
+  }
+}
+
 button:focus {
   outline: none;
 }
@@ -305,13 +355,19 @@ button:focus {
 
 @media (min-width: 768px) {
   .individual-tariff-block {
-    margin-top: 50px;
+    margin-top: 72px;
     max-width: 500px;
   }
 }
 
 .service-suggestion > p > span {
   color: rgba(19, 32, 102, 0.4);
+}
+
+@media (min-width: 768px) {
+  .create-individual-tariff {
+    margin-top: 19px;
+  }
 }
 
 .create-individual-tariff > p > a {
