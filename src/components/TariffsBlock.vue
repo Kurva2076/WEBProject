@@ -3,63 +3,69 @@
     <div class="block-tariffs-container container">
       <h2 class="title text-center fs-2">Тарифы</h2>
 
-      <div class="tariffs-block row justify-content-center" tabindex="1">
-        <div class="starting-tariff tariff-block col-12">
-          <div class="tariff-name">
-            <h3 class="fs-5">Стартовый</h3>
-          </div>
+      <div class="tariffs-block row" tabindex="1">
+        <div class="col-12 col-md-4">
+          <div class="starting-tariff tariff-block">
+            <div class="tariff-name">
+              <h3 class="fs-5">Стартовый</h3>
+            </div>
 
-          <div class="conditions-and-advantages">
-            <ul class="fs-6">
-              <li><span>Консультации и работы по SEO</span></li>
-              <li><span>Услуги дизайнера</span></li>
-              <li><span>Неиспользованные оплаченные часы переносятся на следующий месяц</span></li>
-              <li><span>Предоплата от 6 000 рублей в месяц</span></li>
-            </ul>
-          </div>
+            <div class="conditions-and-advantages">
+              <ul class="fs-6">
+                <li><span>Консультации и работы по SEO</span></li>
+                <li><span>Услуги дизайнера</span></li>
+                <li><span>Неиспользованные оплаченные часы переносятся на следующий месяц</span></li>
+                <li><span>Предоплата от 6 000 рублей в месяц</span></li>
+              </ul>
+            </div>
 
-          <div class="connected-button">
-            <button type="button">СВЯЖИТЕСЬ С НАМИ!</button>
-          </div>
-        </div>
-
-        <div class="business-tariff tariff-block col-12">
-          <div class="tariff-name">
-            <h3 class="fs-5">Бизнес</h3>
-          </div>
-
-          <div class="conditions-and-advantages">
-            <ul class="fs-6">
-              <li><span>Консультации и работы по SEO</span></li>
-              <li><span>Услуги дизайнера</span></li>
-              <li><span>Высокое время реакции - до 2 рабочих дней</span></li>
-              <li><span>Неиспользованные оплаченные часы не переносятся</span></li>
-              <li><span>Предоплата от 30 000 рублей в месяц</span></li>
-            </ul>
-          </div>
-
-          <div class="connected-button">
-            <button type="button">СВЯЖИТЕСЬ С НАМИ!</button>
+            <div class="connected-button">
+              <button type="button">СВЯЖИТЕСЬ С НАМИ!</button>
+            </div>
           </div>
         </div>
 
-        <div class="VIP-tariff tariff-block col-12">
-          <div class="tariff-name">
-            <h3 class="fs-5">VIP</h3>
-          </div>
+        <div class="col-12 col-md-4">
+          <div class="business-tariff tariff-block">
+            <div class="tariff-name">
+              <h3 class="fs-5">Бизнес</h3>
+            </div>
 
-          <div class="conditions-and-advantages">
-            <ul class="fs-6">
-              <li><span>Консультации и работы по SEO</span></li>
-              <li><span>Услуги дизайнера</span></li>
-              <li><span>Максимальное время реакции - в день обращения</span></li>
-              <li><span>Неиспользованные оплаченные часы не переносятся</span></li>
-              <li><span>Предоплата от 270 000 рублей в месяц</span></li>
-            </ul>
-          </div>
+            <div class="conditions-and-advantages">
+              <ul class="fs-6">
+                <li><span>Консультации и работы по SEO</span></li>
+                <li><span>Услуги дизайнера</span></li>
+                <li><span>Высокое время реакции - до 2 рабочих дней</span></li>
+                <li><span>Неиспользованные оплаченные часы не переносятся</span></li>
+                <li><span>Предоплата от 30 000 рублей в месяц</span></li>
+              </ul>
+            </div>
 
-          <div class="connected-button">
-            <button type="button">СВЯЖИТЕСЬ С НАМИ!</button>
+            <div class="connected-button">
+              <button type="button">СВЯЖИТЕСЬ С НАМИ!</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+          <div class="VIP-tariff tariff-block">
+            <div class="tariff-name">
+              <h3 class="fs-5">VIP</h3>
+            </div>
+
+            <div class="conditions-and-advantages">
+              <ul class="fs-6">
+                <li><span>Консультации и работы по SEO</span></li>
+                <li><span>Услуги дизайнера</span></li>
+                <li><span>Максимальное время реакции - в день обращения</span></li>
+                <li><span>Неиспользованные оплаченные часы не переносятся</span></li>
+                <li><span>Предоплата от 270 000 рублей в месяц</span></li>
+              </ul>
+            </div>
+
+            <div class="connected-button">
+              <button type="button">СВЯЖИТЕСЬ С НАМИ!</button>
+            </div>
           </div>
         </div>
       </div>
@@ -124,18 +130,48 @@ export default {
 }
 
 .block-tariffs-container {
-  padding: 107px 0 30px;
+  padding-top: 107px;
+  padding-bottom: 30px;
   max-width: 100%;
 }
 
+@media (min-width: 768px) {
+  .block-tariffs-container {
+    padding-top: 160px;
+    padding-bottom: 90px;
+  }
+}
+
 .tariffs-block.row {
+  justify-content: center;
   width: 100%;
   margin: auto;
-  padding-left: 12px;
-  padding-right: 12px;
 
   &:focus {
     outline: none;
+  }
+
+  & > .col-12 {
+    padding: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .tariffs-block.row {
+    max-width: 744px;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 992px) {
+  .tariffs-block.row {
+    max-width: 940px;
+    justify-content: center;
+
+    & > .col-12 {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
 
@@ -149,13 +185,46 @@ export default {
   margin-bottom: 15px;
 }
 
+@media (min-width: 768px) {
+  .title {
+    font-size: 32px !important;
+    margin-bottom: 63px;
+  }
+}
+
+@media (min-width: 992px) {
+  .title {
+    font-size: 36px !important;
+    margin-bottom: 60px;
+  }
+}
+
 .tariff-block {
-  max-width: 404px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 30px;
+  padding-right: calc(var(--bs-gutter-x) * .5);
+  padding-left: calc(var(--bs-gutter-x) * .5);
+  max-width: 404px;
   border: calc(1px + 1px / 2) solid #EEEEEE;
   border-radius: 5px;
   background-color: #FFFFFF;
-  transition: box-shadow 300ms;
+  transition: box-shadow 500ms;
+}
+
+@media (min-width: 768px) {
+  .tariff-block {
+    width: 220px;
+    transition: scale 500ms, box-shadow 500ms;
+  }
+}
+
+@media (min-width: 992px) {
+  .tariff-block {
+    width: 291px;
+    //margin-left: 0;
+    //margin-right: 0;
+  }
 }
 
 .tariff-block:hover,
@@ -165,6 +234,13 @@ export default {
   & > .connected-button > button {
     color: #FFFFFF;
     background-color: #F14D34;
+  }
+}
+
+@media (min-width: 768px) {
+  .tariff-block:hover,
+  .business-tariff.hover {
+    scale: 110%;
   }
 }
 
@@ -213,7 +289,7 @@ export default {
     font-weight: 700;
     font-size: 12px;
     line-height: 12px;
-    transition: color 700ms, background-color 700ms;
+    transition: color 500ms, background-color 500ms;
   }
 }
 
@@ -225,6 +301,13 @@ button:focus {
   max-width: 404px;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .individual-tariff-block {
+    margin-top: 50px;
+    max-width: 500px;
+  }
 }
 
 .service-suggestion > p > span {
