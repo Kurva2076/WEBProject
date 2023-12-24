@@ -99,5 +99,47 @@ function accordion(event) {
 </template>
 
 <style scoped lang="scss">
-
+body{background: #ffffff;}
+details{
+  margin: auto;
+  font-family: sans-serif;
+  display:block;
+  background: #fff;
+  width:400px;
+  overflow:hidden;
+  width: 1000px;
+}
+.number {
+  color: grey;
+}
+summary::-webkit-details-marker{display:none;}
+summary::-moz-list-bullet{list-style-type:none;}
+summary::marker{display:none;}
+summary {
+  width: 1000px;
+  display:block;
+  padding: .3rem 1rem .3rem .9rem;
+  border-bottom: 1px solid #e2e8f0;
+  font-size:  20px;
+  cursor: pointer;
+  position: relative;
+}
+summary:before {
+  width: 1000px;
+  top: .4em;
+  right: .3em;
+  color: transparent;
+  width: 1em;
+  height: 1em;
+  content: "";
+  position: absolute;
+  color: black;
+}
+details[open] > summary:before {
+  transition: all 1s ease;
+}
+summary ~ * {
+  padding: 0 1em 10px 1.4em;
+  color: black;
+}
 </style>
