@@ -23,6 +23,7 @@ function accordion(event) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <div class = "container1">FAQ</div>
+  <div class="container2"></div>
   <details open>
     <summary><span class = "number">1.</span>Кто непосредственно занимается поддержкой?</summary>
     <p>Сайты поддерживают штатные сотрудники ООО «Инитлаб», г. Краснодар,
@@ -115,6 +116,11 @@ details{
   justify-content: center;
   font-size: 50px;
   height: 100px;
+}
+.container2{
+  display: flex;
+  justify-content: center;
+  font-size: 50px;
 }
 .number {
   color: grey;
