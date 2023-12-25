@@ -3,8 +3,9 @@
     <div class="team-block-container container-fluid">
       <h2 class="title text-center fs-3">Команда</h2>
 
-      <div class="team-block row">
-        <div class="employee-block employee-block-1 col-6 col-lg-4">
+      <div class="team-block row justify-content-around">
+        <div class="col-6 col-lg-4">
+          <div class="employee-block">
           <div class="employee-image">
             <img src="../assets/img/Sergey-Sinitsa.webp" alt="Path to image of Sergey Sinitsa" />
           </div>
@@ -16,9 +17,11 @@
           <div class="employee-position">
             <span>Руководитель отдела веб-разработки, канд. техн. наук, заместитель директора</span>
           </div>
+          </div>
         </div>
 
-        <div class="employee-block employee-block-2 col-6 col-lg-4">
+        <div class="col-6 col-lg-4">
+          <div class="employee-block">
           <div class="employee-image">
             <img src="../assets/img/Roman-Agabekov.webp" alt="Path to image of Roman Agabekov" />
           </div>
@@ -30,9 +33,11 @@
           <div class="employee-position">
             <span>Руководитель отдела DevOPS, директор</span>
           </div>
+          </div>
         </div>
 
-        <div class="employee-block employee-block-3 col-6 col-lg-4">
+        <div class="col-6 col-lg-4">
+          <div class="employee-block">
           <div class="employee-image">
             <img src="../assets/img/Alexey-Sinitsa.webp" alt="Path to image of Alexey Sinitsa" />
           </div>
@@ -44,9 +49,11 @@
           <div class="employee-position">
             <span>Руководитель отдела поддержки сайтов</span>
           </div>
+          </div>
         </div>
 
-        <div class="employee-block employee-block-4 col-6 col-lg-4">
+        <div class="col-6 col-lg-4">
+          <div class="employee-block">
           <div class="employee-image">
             <img src="../assets/img/Daria-Bochkareva.webp" alt="Path to image of Daria Bochkareva" />
           </div>
@@ -58,9 +65,11 @@
           <div class="employee-position">
             <span>Руководитель отдела продвижения, контекстной рекламы и контент-поддержки сайтов</span>
           </div>
+          </div>
         </div>
 
-        <div class="employee-block employee-block-5 col-6 col-lg-4">
+        <div class="col-6 col-lg-4">
+          <div class="employee-block">
           <div class="employee-image">
             <img src="../assets/img/Irina-Torkunova.webp" alt="Path to image of Irina Torkunova" />
           </div>
@@ -72,7 +81,11 @@
           <div class="employee-position">
             <span>Менеджер по работе с клиентами</span>
           </div>
+          </div>
         </div>
+
+<!--        добавить пустой блок, чтобы последний блок с работником нормальной отступал-->
+        
       </div>
 
       <div class="row justify-content-center">
@@ -136,14 +149,25 @@ export default {
   margin-right: auto;
 }
 
-.employee-block {
+.col-6.col-lg-4 {
   padding-left: calc(var(--bs-gutter-x) * .5 + 3px);
   padding-right: calc(var(--bs-gutter-x) * .5 + 3px);
   margin-bottom: 20px;
-  //margin-left: auto;
-  //margin-right: auto;
   max-width: 310px;
+
+  & > .employee-block {
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
+
+//.employee-block {
+//  padding-left: calc(var(--bs-gutter-x) * .5 + 3px);
+//  padding-right: calc(var(--bs-gutter-x) * .5 + 3px);
+//  margin-bottom: 20px;
+//  max-width: 310px;
+//}
 
 //.employee-block-5 {
 //  margin-left: 0;
