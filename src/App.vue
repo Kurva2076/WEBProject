@@ -1,14 +1,14 @@
 <template>
-  <TeamBlock />
+  <PartnersBlock />
 </template>
 
 <script>
-import TeamBlock from "@/components/TeamBlock.vue";
+import PartnersBlock from "@/components/PartnersBlock.vue";
 
 export default {
   name: 'App',
   components: {
-    TeamBlock
+    PartnersBlock
   }
 }
 </script>
