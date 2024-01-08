@@ -9,14 +9,59 @@
           Мы делаем всё, чтобы наше сотрудничество было долгим.
         </span>
       </div>
+
+
+<!--      :autoplay= '{-->
+<!--      "delay": 2500,-->
+<!--      "disableOnInteraction": false-->
+<!--      }'-->
+      <div class="slider">
+        <swiper
+            :slides-per-view="3.4"
+            :loop="true"
+            :looped-slides="3"
+        >
+          <swiper-slide v-for="image in images" :key="image.index">
+            <div class="slide">
+              <div class="img row justify-content-center">
+                <img class="col align-self-center" :src="require(`../assets/img/slider-img/${ image.name }.png`)" :alt=image.name />
+              </div>
+            </div>
+          </swiper-slide>
+        </swiper>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
 
+import SwiperCore, { Keyboard, Autoplay } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/swiper.scss';
+
+SwiperCore.use([Keyboard, Autoplay]);
+
 export default {
-  name: "PartnersBlock"
+  data() {
+    return {
+      images: [
+        { name: "cableman_ru", index: 0 },
+        { name: "farbors_ru", index: 1 },
+        { name: "kubgu", index: 2 },
+        { name: "lpcma_rus_v4", index: 3 },
+        { name: "nashagazeta_ch", index: 4 }
+      ]
+    }
+  },
+  name: "PartnersBlock",
+  components: {
+    Swiper,
+    SwiperSlide
+  },
+  methods: {
+
+  },
 }
 
 </script>
@@ -69,6 +114,7 @@ export default {
   max-width: 740px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
   padding-right: calc(var(--bs-gutter-x) * .5 + 3px);
   padding-left: calc(var(--bs-gutter-x) * .5 + 3px);
   line-height: 22px;
@@ -80,6 +126,34 @@ export default {
 @media (min-width: 601px) {
   .service-message {
     text-align: center;
+  }
+}
+
+.swiper-slide,
+.swiper-slide-duplicate,
+.swiper-slide-active,
+.swiper-slide-duplicate-next,
+.swiper-slide-duplicate {
+  //max-width: max-content !important;
+  //height: fit-content;
+}
+
+.slide {
+  width: 162px;
+  height: 86px;
+  border: 2px #000 solid;
+  padding: 2px;
+
+  & > .img {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+    & > img {
+      width: 75%;
+      height: 75%;
+      object-fit: contain;
+    }
   }
 }
 
