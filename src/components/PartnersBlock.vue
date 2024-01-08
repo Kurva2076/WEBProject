@@ -11,15 +11,24 @@
       </div>
 
 
-<!--      :autoplay= '{-->
-<!--      "delay": 2500,-->
-<!--      "disableOnInteraction": false-->
-<!--      }'-->
       <div class="slider">
         <swiper
-            :slides-per-view="3.4"
+            :init="false"
+            :slides-per-view="3"
+            :space-between="10"
             :loop="true"
             :looped-slides="3"
+            :keyboard='{
+              "enabled": true,
+              "onlyInViewport": false,
+            }'
+            :autoplay= '{
+              "delay": 2000,
+              "disableOnInteraction": false
+            }'
+            :update-on-images-ready="true"
+            @images-ready="changeSlidesWidth"
+            @slideChange="changeSlidesWidth"
         >
           <swiper-slide v-for="image in images" :key="image.index">
             <div class="slide">
@@ -40,6 +49,8 @@ import SwiperCore, { Keyboard, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/swiper.scss';
 
+const doc = document;
+
 SwiperCore.use([Keyboard, Autoplay]);
 
 export default {
@@ -50,7 +61,12 @@ export default {
         { name: "farbors_ru", index: 1 },
         { name: "kubgu", index: 2 },
         { name: "lpcma_rus_v4", index: 3 },
-        { name: "nashagazeta_ch", index: 4 }
+        { name: "nashagazeta_ch", index: 4 },
+        // { name: "cableman_ru", index: 5 },
+        // { name: "farbors_ru", index: 6 },
+        // { name: "kubgu", index: 7 },
+        // { name: "lpcma_rus_v4", index: 8 },
+        // { name: "nashagazeta_ch", index: 9 }
       ]
     }
   },
@@ -60,7 +76,13 @@ export default {
     SwiperSlide
   },
   methods: {
-
+    changeSlidesWidth() {
+      const slidesDuplicate = doc.getElementsByClassName("swiper-slide");
+      let num = 0;
+      for (num; num < slidesDuplicate.length; num += 1) {
+        slidesDuplicate[num].style.width = "max-content";
+      }
+    }
   },
 }
 
@@ -127,15 +149,6 @@ export default {
   .service-message {
     text-align: center;
   }
-}
-
-.swiper-slide,
-.swiper-slide-duplicate,
-.swiper-slide-active,
-.swiper-slide-duplicate-next,
-.swiper-slide-duplicate {
-  //max-width: max-content !important;
-  //height: fit-content;
 }
 
 .slide {
