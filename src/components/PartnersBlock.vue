@@ -11,6 +11,10 @@
       </div>
 
 
+<!--      :autoplay= '{-->
+<!--      "delay": 2000,-->
+<!--      "disableOnInteraction": false-->
+<!--      }'-->
       <div class="slider">
         <swiper
             :init="false"
@@ -22,11 +26,9 @@
               "enabled": true,
               "onlyInViewport": false,
             }'
-            :autoplay= '{
-              "delay": 2000,
-              "disableOnInteraction": false
-            }'
+
             :update-on-images-ready="true"
+            @resize="resize"
             @images-ready="changeSlidesWidth"
             @slideChange="changeSlidesWidth"
         >
@@ -49,6 +51,7 @@ import SwiperCore, { Keyboard, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/swiper.scss';
 
+const win = window;
 const doc = document;
 
 SwiperCore.use([Keyboard, Autoplay]);
@@ -81,7 +84,11 @@ export default {
       let num = 0;
       for (num; num < slidesDuplicate.length; num += 1) {
         slidesDuplicate[num].style.width = "max-content";
+        slidesDuplicate[num].style.height = "max-content";
       }
+    },
+    resize() {
+      win.addEventListener("resize", this.changeSlidesWidth)
     }
   },
 }
