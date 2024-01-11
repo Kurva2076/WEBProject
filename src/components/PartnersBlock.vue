@@ -10,11 +10,15 @@
         </span>
       </div>
 
+<!--      :autoplay='{-->
+<!--      "delay": 2850,-->
+<!--      "disableOnInteraction": false-->
+<!--      }'-->
       <div class="slider">
         <swiper
             :slides-per-view="'auto'"
             :space-between="10"
-            :slides-offset-before="offsetWidth[0]"
+            :slides-offset-before="slidersParams[0].offsetWidth"
             :speed="750"
             :loop="true"
             :looped-slides="5"
@@ -23,15 +27,11 @@
               "enabled": true,
               "onlyInViewport": false,
             }'
-            :autoplay='{
-              "delay": 2850,
-              "disableOnInteraction": false
-            }'
             :update-on-images-ready="true"
-            @resize="resize"
-            @images-ready="customizationBefore('1')"
-            @transition-start="getStartedEndedX('1')"
-            @touch-end="checkingTransition('1')"
+            @resize="resize(0)"
+            @images-ready="customizationBefore(0)"
+            @transition-start="getStartedEndedX(0)"
+            @touch-end="checkingTransition(0)"
         >
           <swiper-slide v-for="image in images" :key="image.index">
             <div class="slide">
@@ -49,7 +49,7 @@
         <swiper
             :slides-per-view="'auto'"
             :space-between="10"
-            :slides-offset-before="offsetWidth[1]"
+            :slides-offset-before="slidersParams[1].offsetWidth"
             :speed="450"
             :loop="true"
             :looped-slides="5"
@@ -64,10 +64,10 @@
             }'
             :update-on-images-ready="true"
             :touch-start-prevent-default="false"
-            @resize="resize"
-            @images-ready="customizationBefore('2')"
-            @transition-start="getStartedEndedX('2')"
-            @touch-end="checkingTransition('2')"
+            @resize="resize(1)"
+            @images-ready="customizationBefore(1)"
+            @transition-start="getStartedEndedX(1)"
+            @touch-end="checkingTransition(1)"
         >
           <swiper-slide v-for="image in images" :key="image.index">
             <div class="slide">
@@ -96,6 +96,10 @@ const doc = document;
 SwiperCore.use([Keyboard, Autoplay]);
 
 export default {
+  components: {
+    Swiper,
+    SwiperSlide
+  },
   data() {
     return {
       cntSlider: 2,
@@ -111,19 +115,33 @@ export default {
         { name: "lpcma_rus_v4", index: 8 },
         { name: "nashagazeta_ch", index: 9 }
       ],
-      offsetWidth: [0, 0],
-      marginFactors1: [30.865, 39, 162.875],
-      marginFactors2: [86.475, 92.75, 214.865],
+      slidersParams: [
+        {
+          offsetWidth: 0,
+          marginFactors: [30.865, 39, 162.875],
+        },
+        {
+          offsetWidth: 0,
+          marginFactors: [86.475, 92.75, 214.865],
+        }
+      ],
       startedX: [-1, -1],
       endedX: [-1, -1]
     }
   },
-  name: "PartnersBlock",
-  components: {
-    Swiper,
-    SwiperSlide
-  },
   methods: {
+    changeOffsets(sliderNum) {
+      const i = sliderNum;
+      const slideWidth = doc.querySelectorAll(".slide")[i].offsetWidth;
+      let marginFactors = this.slidersParams[i].marginFactors;
+      let marginFactor = marginFactors[0];
+      if (win.screen.width >= 600 && win.screen.width < 1024) {
+        marginFactor = marginFactors[1];
+      } else if (win.screen.width >= 1024) {
+        marginFactor = marginFactors[2];
+      }
+      this.slidersParams[i].offsetWidth = slideWidth / 100 * marginFactor;
+    },
     changeSlidesWidth() {
       const slides = doc.querySelectorAll(".swiper-slide");
       let num = 0;
@@ -132,74 +150,20 @@ export default {
         slides[num].style.height = "max-content";
       }
     },
-    resize() {
-      const self = this;
-      win.addEventListener("resize", () => {
-        self.changeSlidesWidth();
-        self.calculateOffsets();
-      });
-    },
-    calculateOffsets(sliderNum) {
-      const lastCord = sliderNum.length - 1;
-      const i = Number.parseInt(sliderNum[lastCord]) - 1;
-      const slideWidth = doc.querySelectorAll(".slide")[i].offsetWidth;
-      let marginFactors = 0;
-      if (i === 0) {
-        marginFactors = this.marginFactors1;
-      } else {
-        marginFactors = this.marginFactors2;
-      }
-      let marginFactor = marginFactors[0];
-      if (win.screen.width >= 600 && win.screen.width < 1024) {
-        marginFactor = marginFactors[1];
-      } else if (win.screen.width >= 1024) {
-        marginFactor = marginFactors[2];
-      }
-      this.offsetWidth[i] = (slideWidth / 100 * marginFactor).valueOf();
-    },
-    customizationBefore(sliderNum) {
-      this.changeSlidesWidth();
-      this.calculateOffsets(sliderNum);
-    },
-    getStartedEndedX(sliderNum) {
-      win.addEventListener("DOMContentLoaded", () => {
-        const i = Number.parseInt(sliderNum) - 1;
-        const slider = doc.getElementsByClassName(sliderNum)[0];
-        const self = this;
-        "mousedown touchstart".split(" ").forEach((e) => {
-          slider.addEventListener(e, (event) => {
-            if (event.type === "touchstart")
-              self.startedX[i] = event.touches[0].screenX;
-            else {
-              if (event.button === 0)
-                self.startedX[i] = event.screenX;
-            }
-          });
-        });
-        "mousemove touchmove".split(" ").forEach((e) =>  {
-          win.addEventListener(e, (event) => {
-            if (self.startedX[i] !== -1) {
-              if (event.type === "touchmove") {
-                self.endedX[i] = event.touches[0].screenX;
-              } else {
-                self.endedX[i] = event.screenX;
-              }
-            }
-          });
-        });
-      });
-    },
     checkingTransition(sliderNum) {
       const i = Number.parseInt(sliderNum) - 1;
-      const slides = doc.querySelectorAll(`.${ sliderNum } .swiper-slide`);
+      const slider = doc.getElementsByClassName("slider")[i];
+      const slides = slider.querySelectorAll(".swiper-slide");
       const swiper = doc.getElementsByClassName("swiper-container")[i].swiper;
       const difference = Math.abs(this.startedX[i] - this.endedX[i]);
+      // console.log(this.startedX[i], this.endedX[i], difference, slider, slides, swiper);
       if (this.endedX[i] > -1 && difference > 226) {
         let num = 0;
         for (num; num < slides.length; num += 1) {
           if (slides[num].classList.contains('swiper-slide-active'))
             break;
         }
+        // console.log(slides[num], swiper, num);
         if (this.startedX[i] - this.endedX[i] > 0) {
           const nextNum = (num + 1 === slides.length) ? 0 : num + 1;
           swiper.slideTo(nextNum, 200, false);
@@ -210,8 +174,53 @@ export default {
       }
       this.startedX[i] = -1;
       this.endedX[i] = -1;
+    },
+    customizationBefore(sliderNum) {
+      this.changeSlidesWidth();
+      this.changeOffsets(sliderNum);
+    },
+    getStartedEndedX(sliderNum) {
+      win.addEventListener("DOMContentLoaded", () => {
+        const i = sliderNum;
+        const self = this;
+        const slider = doc.getElementsByClassName("slider")[i];
+        "mousedown touchstart".split(" ").forEach((e) => {
+          slider.addEventListener(e, (event) => {
+            self.touchStartListener(event, i);
+            "mousemove touchmove".split(" ").forEach((e) => {
+              win.addEventListener(e, (event) => {
+                self.touchMoveListener(event, i);
+              });
+            });
+          });
+        });
+      });
+    },
+    resize(sliderNum) {
+        return () => {
+          this.changeSlidesWidth();
+          this.changeOffsets(sliderNum);
+        };
+    },
+    touchMoveListener(event, i) {
+      console.log(event);
+      if (event.type === "touchstart")
+        this.startedX[i] = event.touches[0].screenX;
+      else {
+        if (event.button === 0)
+          this.startedX[i] = event.screenX;
+      }
+    },
+    touchStartListener(event, i) {
+      console.log(event);
+      if (event.type === "touchmove") {
+        this.endedX[i] = event.touches[0].screenX;
+      } else {
+        this.endedX[i] = event.screenX;
+      }
     }
-  }
+  },
+  name: "PartnersBlock"
 }
 
 </script>
