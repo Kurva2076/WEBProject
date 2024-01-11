@@ -36,7 +36,7 @@ function accordion(event) {
   </details>
   <details tabindex="2">
     <summary><span class = "number">2.</span>Как организована работа поддержки?</summary>
-    <p><br>Клиент выбирает один из тарифов и делает предоплату. Все заявки на работы по сайту заводятся в нашу систему Service desk.
+    <p><br>Клиент выбирает один из тарифов и делает предоплату. Все заявки на работы по сайту заводятся в нашу систему Service desk.<br>
       В течение времени реакции по тарифу закрепленный за проектом специалист приступает к выполнению заявки, фиксирует время,
       потраченное на выполнение заявки и закрывает заявку по окончанию работы.
       Клиент может посмотреть все заявки в работе и отработанные часы в своем кабинете через веб-интерфейс.</p>
@@ -107,7 +107,12 @@ function accordion(event) {
 
 <style scoped lang="scss">
 body{background: #ffffff;}
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: url('../assets/fonts/Montserrat/Montserrat-Bold.ttf') format("truetype");
+}
 details{
+  font-family: "Montserrat-Bold", system-ui !important;
   margin: auto;
   font-family: sans-serif;
   display:block;
@@ -117,6 +122,7 @@ details{
   width: 1000px;
 }
 .container1{
+  font-family: "Montserrat-Bold", system-ui !important;
   display: flex;
   justify-content: center;
   font-size: 50px;
@@ -128,12 +134,14 @@ details{
   font-size: 50px;
 }
 .number {
+  font-family: "Montserrat-Bold", system-ui !important;
   color: grey;
 }
 summary::-webkit-details-marker{display:none;}
 summary::-moz-list-bullet{list-style-type:none;}
 summary::marker{display:none;}
 summary {
+  font-family: "Montserrat-Bold", system-ui !important;
   width: 1000px;
   display:block;
   padding: .3rem 1rem .3rem .9rem;
