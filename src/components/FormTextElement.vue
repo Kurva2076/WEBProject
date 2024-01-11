@@ -75,12 +75,18 @@ export default {
   max-width: 504px;
 }
 
+@font-face {
+  font-family: "Montserrat-Bold";
+  src: url("../assets/fonts/Montserrat/Montserrat-Bold.ttf") format("truetype");
+}
+
 .subtitle {
   padding-top: 15px;
   padding-bottom: 12px;
   text-align: center;
 
   & > h2 {
+    font-family: "Montserrat-Bold", system-ui !important;
     font-size: 22px;
     line-height: 27px;
   }
@@ -88,7 +94,7 @@ export default {
 
 @media (min-width: 601px) {
   .subtitle > h2 {
-    font-size: 25px;
+    font-size: 24px;
   }
 }
 
@@ -97,7 +103,7 @@ export default {
     padding-top: 5px;
 
     & > h2 {
-      font-size: 34px;
+      font-size: 32px;
       line-height: 40px;
     }
   }

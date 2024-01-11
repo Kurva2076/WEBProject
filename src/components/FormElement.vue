@@ -1,10 +1,21 @@
 <template>
 
-  <form id="clientInfo" class="col">
-    <div class="formElement" v-for="input in inputs" :key="inputs.indexOf(input)">
+  <form id="clientInfo" class="col" @submit.prevent.stop="submit">
+    <div
+        class="formElement"
+        v-for="input in data.inputs"
+        :key="input.name"
+    >
       <div class="textElement">
         <div :class=input.class>
-          <input :type=input.type :name=input.name :placeholder=input.placeholder />
+          <input
+              :type=input.type
+              :name=input.name
+              :placeholder=input.placeholder
+              :required=input.required
+              v-model="data[input.bindName].value"
+              @input="updateValue(input.bindName)"
+          />
         </div>
       </div>
     </div>
@@ -12,7 +23,12 @@
     <div class="formElement">
       <div class="textElement">
         <div class="messageText">
-          <textarea name="clientMessage" placeholder="Ваш комментарий"></textarea>
+          <textarea
+              name="clientMessage"
+              placeholder="Ваш комментарий"
+              v-model="data.message.value"
+              @input="updateValue('message')"
+          ></textarea>
         </div>
       </div>
     </div>
@@ -20,7 +36,14 @@
     <div class="formElement">
       <div class="userAgree">
         <label>
-          <input class="form-check-input" type="checkbox" name="agreeCheckbox" />
+          <input
+              class="form-check-input"
+              type="checkbox"
+              name="agreeCheckbox"
+              required
+              v-model="data.agreement.value"
+              @change="updateValue('agreement')"
+          />
           <span class="custom-checkbox"></span>
           <span class="agreementText">
             Отправляя заявку, я даю согласие на
@@ -42,29 +65,84 @@
 
 <script>
 
+import { useStore } from "vuex";
+import { reactive, watchEffect } from "vue";
+
 export default {
-  data() {
-    return {
+  setup() {
+    const userInfo = useStore();
+
+    const data = reactive({
+      agreement: { stateName: "agreement", value: false },
+      author: { stateName: "author", value: '' },
+      eMail: { stateName: "eMail", value: '' },
       inputs: [
         {
           class: "nameText",
           name: "clientName",
           type: "text",
-          placeholder:"Ваше имя"
+          placeholder:"Ваше имя",
+          bindName: "author",
+          required: false
         },
         {
           class: "phoneText",
           name: "clientPhone",
           type: "tel",
-          placeholder:"Телефон"
+          placeholder:"Телефон",
+          bindName: "phone",
+          required: true
         },
         {
           class: "eMailText",
           name: "clientEMail",
           type: "email",
-          placeholder:"E-mail"
+          placeholder:"E-mail",
+          bindName: "eMail",
+          required: true
         },
-      ]
+      ],
+      message: { stateName: "message", value: '' },
+      phone: { stateName: "phone", value: '' }
+    });
+
+    const updateValue = (name) => {
+      userInfo.commit('increment', data[name]);
+    };
+
+    const submit = () => {
+      if (checkForm() === true) {
+        console.log("Ща будет");
+
+      }
+    };
+
+    const checkForm = () => {
+      let elem;
+      for (elem in data) {
+        if (data[elem] !== data.author &&
+            data[elem] !== data.inputs &&
+            data[elem] !== data.message) {
+          if (data[elem].value === false || data[elem].value === '')
+            return false;
+        }
+      }
+      return true;
+    };
+
+    watchEffect(() => {
+      data.author.value = userInfo.getters.getAuthor;
+      data.phone.value = userInfo.getters.getPhone;
+      data.eMail.value = userInfo.getters.getEMail;
+      data.message.value = userInfo.getters.getMessage;
+      data.agreement.value = userInfo.getters.getAgreement;
+    });
+
+    return {
+      data,
+      updateValue,
+      submit,
+      checkForm
     }
   },
   name: "FormElement"

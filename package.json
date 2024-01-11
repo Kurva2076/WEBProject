@@ -16,7 +16,8 @@
     "npm": "^10.2.5",
     "slapform": "^2.0.9",
     "vue": "^3.2.13",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
