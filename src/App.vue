@@ -1,26 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <FAQ />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import FAQ from "@/components/FAQ.vue"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    FAQ
   }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url("./assets/fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  font-family: "Montserrat-Regular", system-ui !important;
 }
 </style>
