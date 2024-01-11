@@ -10,10 +10,6 @@
         </span>
       </div>
 
-<!--      :autoplay='{-->
-<!--      "delay": 2850,-->
-<!--      "disableOnInteraction": false-->
-<!--      }'-->
       <div class="slider">
         <swiper
             :slides-per-view="'auto'"
@@ -26,6 +22,10 @@
             :keyboard='{
               "enabled": true,
               "onlyInViewport": false,
+            }'
+            :autoplay='{
+              "delay": 2850,
+              "disableOnInteraction": false
             }'
             :update-on-images-ready="true"
             :touch-start-prevent-default="false"
