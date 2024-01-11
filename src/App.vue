@@ -1,14 +1,14 @@
 <template>
-  <FormBlock />
+  <FormFooterBlock />
 </template>
 
 <script>
-import FormBlock from "@/components/FormBlock.vue";
+import FormFooterBlock from "@/components/FormFooterBlock.vue";
 
 export default {
   name: 'App',
   components: {
-    FormBlock
+    FormFooterBlock
   }
 }
 </script>
