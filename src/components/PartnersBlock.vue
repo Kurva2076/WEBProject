@@ -28,6 +28,7 @@
               "onlyInViewport": false,
             }'
             :update-on-images-ready="true"
+            :touch-start-prevent-default="false"
             @resize="resize(0)"
             @images-ready="customizationBefore(0)"
             @transition-start="getStartedEndedX(0)"
@@ -151,19 +152,17 @@ export default {
       }
     },
     checkingTransition(sliderNum) {
-      const i = Number.parseInt(sliderNum) - 1;
+      const i = sliderNum;
       const slider = doc.getElementsByClassName("slider")[i];
       const slides = slider.querySelectorAll(".swiper-slide");
       const swiper = doc.getElementsByClassName("swiper-container")[i].swiper;
       const difference = Math.abs(this.startedX[i] - this.endedX[i]);
-      // console.log(this.startedX[i], this.endedX[i], difference, slider, slides, swiper);
       if (this.endedX[i] > -1 && difference > 226) {
         let num = 0;
         for (num; num < slides.length; num += 1) {
           if (slides[num].classList.contains('swiper-slide-active'))
             break;
         }
-        // console.log(slides[num], swiper, num);
         if (this.startedX[i] - this.endedX[i] > 0) {
           const nextNum = (num + 1 === slides.length) ? 0 : num + 1;
           swiper.slideTo(nextNum, 200, false);
@@ -180,43 +179,44 @@ export default {
       this.changeOffsets(sliderNum);
     },
     getStartedEndedX(sliderNum) {
+      const self = this;
       win.addEventListener("DOMContentLoaded", () => {
         const i = sliderNum;
-        const self = this;
-        const slider = doc.getElementsByClassName("slider")[i];
+        const slider = doc.querySelectorAll(".slider")[i];
         "mousedown touchstart".split(" ").forEach((e) => {
           slider.addEventListener(e, (event) => {
             self.touchStartListener(event, i);
-            "mousemove touchmove".split(" ").forEach((e) => {
-              win.addEventListener(e, (event) => {
-                self.touchMoveListener(event, i);
-              });
-            });
+          });
+        });
+        "mousemove touchmove".split(" ").forEach((e) => {
+          win.addEventListener(e, (event) => {
+            if (self.startedX[i] !== -1) {
+              self.touchMoveListener(event, i);
+            }
           });
         });
       });
     },
     resize(sliderNum) {
-        return () => {
-          this.changeSlidesWidth();
-          this.changeOffsets(sliderNum);
-        };
+      const self = this;
+      return () => {
+        self.changeSlidesWidth();
+        self.changeOffsets(sliderNum);
+      };
     },
     touchMoveListener(event, i) {
-      console.log(event);
+      if (event.type === "touchmove") {
+        this.endedX[i] = event.touches[0].screenX;
+      } else {
+        this.endedX[i] = event.screenX;
+      }
+    },
+    touchStartListener(event, i) {
       if (event.type === "touchstart")
         this.startedX[i] = event.touches[0].screenX;
       else {
         if (event.button === 0)
           this.startedX[i] = event.screenX;
-      }
-    },
-    touchStartListener(event, i) {
-      console.log(event);
-      if (event.type === "touchmove") {
-        this.endedX[i] = event.touches[0].screenX;
-      } else {
-        this.endedX[i] = event.screenX;
       }
     }
   },
