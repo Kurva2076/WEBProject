@@ -8,7 +8,7 @@ function accordion(event) {
   if (!event.target.open) return;
   var details = event.target.parentNode.children;
   for(i=0;i<details.length;i++) {
-    if (details[i].tagName != "DETAILS" || !details[i].hasAttribute('open') || event.target == details[i]) continue;
+    if (details[i].tagName !== "DETAILS" || !details[i].hasAttribute('open') || event.target === details[i]) continue;
     details[i].removeAttribute("open");
   }
 }
@@ -28,8 +28,8 @@ function accordion(event) {
       В течение времени реакции по тарифу закрепленный за проектом специалист приступает к выполнению заявки, фиксирует время,
       потраченное на выполнение заявки и закрывает заявку по окончанию работы.
       Клиент может посмотреть все заявки в работе и отработанные часы в своем кабинете через веб-интерфейс.</p>
-  </details>
-  <details tabindex="3">
+    </details>
+    <details tabindex="3">
     <summary><span class = "number">3.</span>Что происходит, когда отработаны все предоплаченные часы за месяц?</summary>
     <p>Мы уведомляем Клиента, о том, что последующие заявки в этом месяце будут выполняться с доплатой согласно тарифу либо будут перенесены по срокам на следующий месяц.
       В конце месяца, в котором были заявки с доплатой, клиентам отправляется счет на доплату по факту выполненных работ сверх предоплаты тарифного плана.</p>
