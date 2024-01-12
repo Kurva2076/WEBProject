@@ -111,4 +111,36 @@
 .blocks{
   width:50%!important;
 }
+@media(min-width:768px){
+  .blocks{
+    width:25%!important;
+  }
+  .title-function{
+    font-size: 33px;
+    line-height: 32px;
+    padding-top:110px;
+    margin-left:20px
+  }
+  .under_title{
+    font-size: 19px;
+    line-height: 25px;
+    margin-left:20px;
+  }
+  .bottom_content{
+    margin-left:20px;
+    width:fit-content;
+    word-spacing:20px;
+    word-wrap:normal;
+    text-align: left;
+  }
+  .top_content{
+    margin-left:20px;
+  }
+}
+@media(min-width:992px) {
+  .title-function {
+    font-size: 37px;
+    line-height: 35px;
+  }
+}
 </style>
