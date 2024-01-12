@@ -4,9 +4,13 @@ import App from './App.vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab, faFacebookF, faVk, faTelegramPlane, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import cors from "cors";
+// import morgan from "morgan";
+// import fetch from "node-fetch";
 
 library.add(fab, faFacebookF, faVk, faTelegramPlane, faYoutube);
 
+const app = createApp(App);
 const userInfo = createStore({
     state() {
         return {
@@ -41,4 +45,13 @@ const userInfo = createStore({
     }
 });
 
-createApp(App).use(userInfo).component('fa', FontAwesomeIcon).mount('#app');
+app.component(`fa`, FontAwesomeIcon);
+
+app.use(userInfo).use(
+    cors({
+        origin: "http://localhost:8080/"
+    })
+);
+
+
+app.mount('#app');

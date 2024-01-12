@@ -67,11 +67,13 @@
 
 import { useStore } from "vuex";
 import { reactive, watchEffect } from "vue";
+// import { useRoute } from 'vue-router';
+// import { computed } from 'vue';
 
 export default {
   setup() {
+    const accessKey = "904161c0-cec3-49b9-a148-e4f2b826f658";
     const userInfo = useStore();
-
     const data = reactive({
       agreement: { stateName: "agreement", value: false },
       author: { stateName: "author", value: '' },
@@ -110,24 +112,37 @@ export default {
       userInfo.commit('increment', data[name]);
     };
 
-    const submit = () => {
-      if (checkForm() === true) {
-        console.log("Ща будет");
+    const submit = async () => {
+      const sendButton = document.querySelector(".sendButton > button");
+      sendButton.innerHTML = "ИДЁТ ОТПРАВКА...";
+      // const route = useRoute();
+      // const path = computed(() => route.path)
+      // console.log(route)
 
-      }
-    };
+      const response = await fetch("http://localhost:8080/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          agreement: data.agreement.value,
+          author: data.author.value,
+          eMail: data.eMail.value,
+          message: data.message.value,
+          phone: data.phone.value
+        }),
+      });
 
-    const checkForm = () => {
-      let elem;
-      for (elem in data) {
-        if (data[elem] !== data.author &&
-            data[elem] !== data.inputs &&
-            data[elem] !== data.message) {
-          if (data[elem].value === false || data[elem].value === '')
-            return false;
-        }
+      const result = await response.json();
+
+      if (result.success === true) {
+        sendButton.innerHTML = "ФОРМА УСПЕШНО ОТПРАВЛЕНА";
+      } else {
+        sendButton.innerHTML = "ПРОИЗОШЛА ОШИБКА";
+        console.log(result)
       }
-      return true;
     };
 
     watchEffect(() => {
@@ -141,8 +156,7 @@ export default {
     return {
       data,
       updateValue,
-      submit,
-      checkForm
+      submit
     }
   },
   name: "FormElement"
