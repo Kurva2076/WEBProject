@@ -1,5 +1,23 @@
 <script setup>
-
+var swiper = new Swiper(".mySwiper", {
+  autoHeight: true,
+  slidesPerView: 1,
+  spaceBetween: 30,
+  slidesPerView: "auto",
+  loop: true,
+  effect: "fade",
+  crossfade: true,
+  pagination: {
+    el: ".swiper-pagination",
+    type: "fraction",
+    slidesPerView: "auto",
+  },
+  navigation: {
+    slidesPerView: "auto",
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
 </script>
 
 <template>
