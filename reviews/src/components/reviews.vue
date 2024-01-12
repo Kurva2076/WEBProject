@@ -92,5 +92,71 @@ var swiper = new Swiper(".mySwiper", {
 </template>
 
 <style scoped>
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+}
 
+.swiper {
+  margin: 30%;
+  height: auto;
+  top: -35%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  color: #050C33;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sample-slider .swiper-pagination-bullets{
+  width: initial;
+  left: initial;
+  right: 0;
+}
+.container{
+  display: flex;
+  font-size: 42px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: #050C33;
+}
+.photo{
+  margin-bottom: 40%;
+  height: auto;
+}
+.swiper-button-next{
+  margin-right: 19%;
+  color: #050C33;
+}
+.swiper-button-prev{
+  margin-left: 70%;
+  color: #050C33;
+}
+.swiper-pagination{
+  margin-bottom: 438px;
+  margin-left: 486px;
+  font-size: 20px;
+  color: #050C33;
+  display: block;
+}
 </style>
