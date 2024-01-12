@@ -1,26 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Reviews />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import reviews from "@/components/reviews.vue"
+import Reviews from "@/components/reviews.vue";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Reviews,
+    reviews
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss">
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url("./assets/fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  font-family: "Montserrat-Regular", system-ui !important;
 }
 </style>
