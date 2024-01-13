@@ -56,7 +56,14 @@
 
     <div class="formElement">
       <div class="sendButton">
-        <button class="button" type="submit" form="clientInfo">СВЯЖИТЕСЬ С НАМИ</button>
+        <button
+            class="button"
+            type="submit"
+            form="clientInfo"
+            v-bind:disabled="data.button.disabled"
+        >
+          <span>СВЯЖИТЕСЬ С НАМИ</span>
+        </button>
       </div>
     </div>
   </form>
@@ -72,18 +79,24 @@ import { reactive, watchEffect } from "vue";
 
 export default {
   setup() {
+    let buttonAnimations = [] , textAnimations = [];
     const accessKey = "904161c0-cec3-49b9-a148-e4f2b826f658";
     const userInfo = useStore();
     const data = reactive({
       agreement: { stateName: "agreement", value: false },
       author: { stateName: "author", value: '' },
+      button: {
+        stateName: "button",
+        attributeName: "disabled",
+        disabled: false
+      },
       eMail: { stateName: "eMail", value: '' },
       inputs: [
         {
           class: "nameText",
           name: "clientName",
           type: "text",
-          placeholder:"Ваше имя",
+          placeholder: "Ваше имя",
           bindName: "author",
           required: false
         },
@@ -91,7 +104,7 @@ export default {
           class: "phoneText",
           name: "clientPhone",
           type: "tel",
-          placeholder:"Телефон",
+          placeholder: "Телефон",
           bindName: "phone",
           required: true
         },
@@ -99,27 +112,60 @@ export default {
           class: "eMailText",
           name: "clientEMail",
           type: "email",
-          placeholder:"E-mail",
+          placeholder: "E-mail",
           bindName: "eMail",
           required: true
-        },
+        }
       ],
       message: { stateName: "message", value: '' },
       phone: { stateName: "phone", value: '' }
     });
 
     const updateValue = (name) => {
-      userInfo.commit('increment', data[name]);
+      userInfo.commit('incrementValue', data[name]);
     };
 
     const submit = async () => {
-      const sendButton = document.querySelector(".sendButton > button");
-      sendButton.innerHTML = "ИДЁТ ОТПРАВКА...";
-      // const route = useRoute();
-      // const path = computed(() => route.path)
-      // console.log(route)
+      const sendButtons = document.querySelectorAll(".sendButton > .button");
+      let i;
+      for (i = 0; i < sendButtons.length; i += 1) {
+        if (buttonAnimations.length !== 0 && textAnimations.length !== 0) {
+          buttonAnimations[i].reverse(); textAnimations[i].reverse();
+        }
 
-      const response = await fetch("http://localhost:8080/submit", {
+        const sendButtonText = sendButtons[i].querySelector("span");
+
+        userInfo.commit('incrementDisabled', true);
+
+        sendButtons[i].style.backgroundColor = "transparent";
+        buttonAnimations[i] = sendButtons[i].animate([
+          { borderColor: "#F2F212 rgba(242, 242, 18, 0.2)" },
+          { borderColor: "rgba(242, 242, 18, 0.2) #F2F212" },
+          { borderColor: "#F2F212 rgba(242, 242, 18, 0.2)" }
+        ], {
+          duration: 1500,
+          iterations: Infinity
+        });
+
+        setTimeout(() => {
+          sendButtonText.innerHTML = "ИДЁТ ОТПРАВКА...";
+          sendButtonText.style.color = "#F2F212";
+        }, 420);
+        textAnimations[i] = sendButtonText.animate([
+          { opacity: 1, textShadow: "0 0 15px #F2F212" },
+          { opacity: 0.75, textShadow: "0 0 10px #F2F212" },
+          { opacity: 0.5, textShadow: "0 0 5px #F2F212" },
+          { opacity: 0, textShadow: "0 0 0 #F2F212" },
+          { opacity: 0.5, textShadow: "0 0 5px #F2F212" },
+          { opacity: 0.75, textShadow: "0 0 10px #F2F212" },
+          { opacity: 1, textShadow: "0 0 15px #F2F212" }
+        ], {
+          duration: 980,
+          iterations: Infinity
+        });
+      }
+
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -137,26 +183,94 @@ export default {
 
       const result = await response.json();
 
-      if (result.success === true) {
-        sendButton.innerHTML = "ФОРМА УСПЕШНО ОТПРАВЛЕНА";
-      } else {
-        sendButton.innerHTML = "ПРОИЗОШЛА ОШИБКА";
-        console.log(result)
+      for (i = 0; i < sendButtons.length; i += 1) {
+        const sendButtonText = sendButtons[i].querySelector("span");
+        const sendButton = sendButtons[i];
+        let innerHTML, bgColor, animateIterations, keyframes;
+
+        if (result.success === true) {
+          innerHTML = "ФОРМА УСПЕШНО ОТПРАВЛЕНА";
+          bgColor = "26, 181, 26";
+          animateIterations = 1;
+          keyframes = [
+            {
+              borderColor: "transparent",
+              backgroundColor: "transparent",
+              boxShadow: `0 0 0 0 rgb(${ bgColor })`
+            },
+            {
+              borderColor: `rgb(${ bgColor })`,
+              backgroundColor: `rgb(${ bgColor })`,
+              boxShadow: `0 0 9px 1px rgb(${ bgColor })`
+            }
+          ];
+          console.log(result);
+        } else {
+          innerHTML = "ПРОИЗОШЛА ОШИБКА";
+          bgColor = "235, 90, 90";
+          animateIterations = Infinity;
+          keyframes = [
+            {
+              borderColor: `rgba(${ bgColor }, 0)`,
+              backgroundColor: "transparent",
+              boxShadow: `0 0 0 0 rgb(${ bgColor })`
+            },
+            {
+              borderColor: `rgba(${ bgColor }, 1)`,
+              backgroundColor: `rgb(${ bgColor })`,
+              boxShadow: `0 0 9px 1px rgb(${ bgColor })`
+            },
+            {
+              borderColor: `rgba(${ bgColor }, 0)`,
+              backgroundColor: "transparent",
+              boxShadow: `0 0 0 0 rgb(${ bgColor })`
+            }
+          ];
+          userInfo.commit('incrementDisabled', false);
+          console.log(result);
+        }
+
+        buttonAnimations[i].reverse();
+        textAnimations[i].reverse();
+
+        setTimeout(() => {
+          sendButton.style.backgroundColor = `rgb(${ bgColor })`;
+          sendButton.style.borderColor = `rgb(${ bgColor })`;
+          sendButton.style.boxShadow = `0 0 9px 1px rgb(${ bgColor })`;
+        }, 1500);
+        buttonAnimations[i] = sendButton.animate(keyframes, {
+          duration: 1500,
+          iterations: animateIterations
+        });
+
+        setTimeout(() => {
+          sendButtonText.innerHTML = innerHTML;
+          sendButtonText.style.color = "#FFF";
+        }, 500);
+        textAnimations[i] = sendButtonText.animate([
+          { opacity: 1 },
+          { opacity: 0 },
+          { opacity: 1 }
+        ], {
+          duration: 1500,
+          iterations: 1
+        });
       }
     };
 
     watchEffect(() => {
+      data.agreement.value = userInfo.getters.getAgreement;
       data.author.value = userInfo.getters.getAuthor;
-      data.phone.value = userInfo.getters.getPhone;
+      data.button.disabled = userInfo.getters.getButtonDisabled;
       data.eMail.value = userInfo.getters.getEMail;
       data.message.value = userInfo.getters.getMessage;
-      data.agreement.value = userInfo.getters.getAgreement;
+      data.phone.value = userInfo.getters.getPhone;
     });
 
     return {
       data,
-      updateValue,
-      submit
+      submit,
+      updateValue
     }
   },
   name: "FormElement"

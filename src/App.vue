@@ -4,6 +4,8 @@
 
 <script>
 import FormFooterBlock from "@/components/FormFooterBlock.vue";
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default {
   name: 'App',
